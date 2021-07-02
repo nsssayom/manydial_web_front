@@ -1,0 +1,73 @@
+<template>
+	<div id="copyright" class="bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<ul class="list-inline">
+						<li class="list-inline-item"><a href="#">Home</a></li>
+						<li class="list-inline-item">
+							<a href="#contact-us">Contact us</a>
+						</li>
+						<li class="list-inline-item">
+							<a href="#">Privacy policy</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-4 text-center">
+					<small
+						>A concern by
+						<a
+							href="https://reelboard.co"
+							target="_blank"
+							rel="noopener"
+							>Reelboard</a
+						></small
+					>
+				</div>
+				<div class="col-md-4">
+					<ul class="list-inline tright">
+						<li class="list-inline-item">
+							<a href="#"
+								><font-awesome-icon
+									:icon="['fab', 'instagram']"
+									:style="{ color: '#E1306C' }"
+							/></a>
+						</li>
+						<li class="list-inline-item">
+							<a href="#">
+								<font-awesome-icon
+									:icon="['fab', 'facebook']"
+									:style="{ color: '#1877F2' }"
+								/>
+							</a>
+						</li>
+						<li class="list-inline-item">
+							<a href="#">
+								<font-awesome-icon
+									:icon="['fab', 'twitter']"
+									:style="{ color: '#1DA1F2' }"
+								/>
+							</a>
+						</li>
+						<li class="list-inline-item">
+							<a href="#"
+								><font-awesome-icon
+									:icon="['fab', 'youtube']"
+									:style="{ color: '#FF0000' }"
+							/></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script>
+export default {
+	name: "Copyright",
+};
+</script>
+
+<style>
+</style>
