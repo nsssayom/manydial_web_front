@@ -1,5 +1,3 @@
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'production'
-        ? '/manydial_web_front_deploy/'
-        : '/'
+    publicPath: '/manydial_web_front_deploy/'
 }
