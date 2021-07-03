@@ -4,7 +4,7 @@
 			<div class="col-12 col-xl-5">
 				<Form-Record />
 			</div>
-			<div class="col-12 col-xl-7">
+			<div class="col-12 col-xl-7" id="form-intro">
 				<FormIntro />
 			</div>
 		</div>
@@ -24,5 +24,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+@media (max-width: 1200px) {
+	#form-intro {
+		padding-top: 50px;
+	}
+}
 </style>
