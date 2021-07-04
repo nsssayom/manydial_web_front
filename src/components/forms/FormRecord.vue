@@ -56,7 +56,7 @@
 
 						<div class="col-4 py-1 ms-auto">
 							<p class="text-end text-primary unselectable">
-								00:00
+								0:00
 							</p>
 						</div>
 					</div>
@@ -114,7 +114,7 @@
 				<button
 					type="button"
 					class="
-						btn btn-outline-primary
+						btn btn-outline-success
 						shadow
 						py-3 py-xs-0
 						my-xs-0

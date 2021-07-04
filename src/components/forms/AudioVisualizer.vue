@@ -102,6 +102,11 @@ export default {
 					"audio-record-start",
 					this.mediaRecorder.state
 				);
+
+				// Time-out for 3 mins
+				setTimeout(() => {
+					this.stopRecord();
+				}, 180000);
 			});
 		},
 		stopRecord() {
