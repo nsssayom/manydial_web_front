@@ -2,7 +2,7 @@
 	<div>
 		<av-media
 			type="frequ"
-			:media="media"
+			:media="getMedia"
 			line-color="#407BFF"
 			:canv-width="canWidth"
 			:canv-height="35"
@@ -34,6 +34,8 @@ export default {
 			mtype: null,
 			media: null,
 			isMicPermitted: null,
+			mediaRecorder: null,
+			audioUrl: null,
 		};
 	},
 	props: {
@@ -47,6 +49,9 @@ export default {
 		},
 	},
 	computed: {
+		getMedia: function () {
+			return this.media;
+		},
 		lineNum: function () {
 			return this.numLine;
 		},
@@ -63,15 +68,55 @@ export default {
 					this.isMicPermitted = permissionStatus.state;
 				});
 		},
+
+		startRecord() {
+			const constraints = {
+				audio: true,
+				video: false,
+			};
+			var device = navigator.mediaDevices.getUserMedia(constraints);
+
+			device.then((media) => {
+				this.media = media;
+				this.mediaRecorder = new MediaRecorder(media);
+
+				let audioChunks = [];
+				this.mediaRecorder.ondataavailable = function (e) {
+					console.log("Pushing data");
+					audioChunks.push(e.data);
+				};
+
+				this.mediaRecorder.onstop = function (e) {
+					console.log(e);
+					const audioBlob = new Blob(audioChunks, {
+						type: "audio/webm; codecs=opus",
+					});
+					audioChunks = [];
+					this.audioUrl = URL.createObjectURL(audioBlob);
+					console.log("New Audio URL: ", this.audioUrl);
+					this.emitter.emit("audio-record-success", this.audioUrl);
+				}.bind(this);
+
+				this.mediaRecorder.start();
+				this.emitter.emit(
+					"audio-record-start",
+					this.mediaRecorder.state
+				);
+			});
+		},
+		stopRecord() {
+			this.mediaRecorder.stop();
+			this.media.getTracks().forEach(function (track) {
+				track.stop();
+			});
+		},
 	},
 	mounted() {
+		this.audioChunks = [];
 		this.checkMicPermission();
-		const constraints = {
-			audio: true,
-			video: false,
-		};
-		navigator.mediaDevices.getUserMedia(constraints).then((media) => {
-			this.media = media;
+		this.emitter.on("record-toogle", (value) => {
+			console.log("record-toogle received!", `value: ${value}`);
+			value ? this.startRecord() : this.stopRecord();
 		});
 	},
 };
