@@ -34,10 +34,9 @@
 		<div class="col-8">
 			<div class="card shadow bg-body rounded">
 				<div class="card-body" ref="visualizer-card">
-					<div class="row">
-						<div class="col-2 py-1 me-auto">
+					<div class="row" @click="toogleRecord">
+						<div class="col-2 py-1 text-center">
 							<font-awesome-icon
-								@click="toogleRecord"
 								:icon="['fas', 'microphone']"
 								:style="{ color: recordIconColor }"
 							/>
