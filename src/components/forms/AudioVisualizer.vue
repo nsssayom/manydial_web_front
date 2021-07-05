@@ -33,7 +33,6 @@ export default {
 		return {
 			mtype: null,
 			media: null,
-			isMicPermitted: null,
 			mediaRecorder: null,
 			audioUrl: null,
 		};
@@ -60,15 +59,6 @@ export default {
 		},
 	},
 	methods: {
-		checkMicPermission() {
-			navigator.permissions
-				.query({ name: "microphone" })
-				.then((permissionStatus) => {
-					console.log(permissionStatus.state);
-					this.isMicPermitted = permissionStatus.state;
-				});
-		},
-
 		startRecord() {
 			const constraints = {
 				audio: true,
@@ -118,7 +108,6 @@ export default {
 	},
 	mounted() {
 		this.audioChunks = [];
-		this.checkMicPermission();
 		this.emitter.on("record-toogle", (value) => {
 			console.log("record-toogle received!", `value: ${value}`);
 			value ? this.startRecord() : this.stopRecord();

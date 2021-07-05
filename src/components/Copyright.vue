@@ -27,13 +27,6 @@
 				<div class="col-md-4">
 					<ul class="list-inline tright">
 						<li class="list-inline-item">
-							<a href="#"
-								><font-awesome-icon
-									:icon="['fab', 'instagram']"
-									:style="{ color: '#E1306C' }"
-							/></a>
-						</li>
-						<li class="list-inline-item">
 							<a href="#">
 								<font-awesome-icon
 									:icon="['fab', 'facebook']"
@@ -41,6 +34,31 @@
 								/>
 							</a>
 						</li>
+
+						<li class="list-inline-item">
+							<a href="#"
+								><font-awesome-icon
+									:icon="['fab', 'instagram']"
+									:style="{ color: '#E1306C' }"
+							/></a>
+						</li>
+
+						<li class="list-inline-item">
+							<a href="#"
+								><font-awesome-icon
+									:icon="['fab', 'linkedin']"
+									:style="{ color: '#0077B5' }"
+							/></a>
+						</li>
+
+						<li class="list-inline-item">
+							<a href="#"
+								><font-awesome-icon
+									:icon="['fab', 'whatsapp']"
+									:style="{ color: '#00E676' }"
+							/></a>
+						</li>
+
 						<li class="list-inline-item">
 							<a href="#">
 								<font-awesome-icon

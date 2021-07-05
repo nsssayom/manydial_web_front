@@ -13,7 +13,7 @@ import "@/assets/css/style.css"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMicrophone, faCircle, faPlay, faUpload, faDownload, faKeyboard, faCheck, faCheckSquare, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
-import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons'
+import { faFacebook, faInstagram, faLinkedin, faTwitter, faWhatsapp, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
 library.add(faMicrophone);
 library.add(faCircle);
@@ -28,6 +28,8 @@ library.add(faInstagram);
 library.add(faTwitter);
 library.add(faYoutube);
 library.add(faTimesCircle);
+library.add(faLinkedin);
+library.add(faWhatsapp);
 
 import AudioVisual from 'vue-audio-visual';
 

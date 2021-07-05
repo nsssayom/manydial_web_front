@@ -97,6 +97,20 @@
 	</div>
 	<!-- Voice input ends -->
 
+	<div class="row pt-3" v-show="micPermissionState === 'denied'">
+		<div class="col-12">
+			<div class="alert alert-danger" role="alert">
+				Microphone permission is not available. Please
+				<a
+					href="https://support.google.com/chrome/answer/3296214?hl=en"
+					target="_blank"
+					>reset</a
+				>
+				your browser settings.
+			</div>
+		</div>
+	</div>
+
 	<!-- Audio player interface -->
 
 	<div class="row pt-3" v-show="audioSource !== null">
@@ -244,6 +258,7 @@ export default {
 			isRecordingPrep: false,
 			isRecording: false,
 			audioSource: null,
+			micPermissionState: "",
 		};
 	},
 	computed: {
@@ -259,16 +274,37 @@ export default {
 	methods: {
 		toogleRecord() {
 			this.isRecordingPrep = !this.isRecordingPrep;
-			this.emitter.emit("record-toogle", this.isRecordingPrep);
+
+			if (this.micPermissionState !== "denied") {
+				this.emitter.emit("record-toogle", this.isRecordingPrep);
+			}
+
 			if (this.isRecordingPrep) {
 				this.hidePlayer();
+				this.getMicPermission();
 			}
 		},
 		hidePlayer() {
 			this.audioSource = null;
 		},
+		getMicPermission() {
+			navigator.permissions
+				.query({ name: "microphone" })
+				.then((permissionStatus) => {
+					console.log(permissionStatus.state);
+					this.micPermissionState = permissionStatus.state;
+					permissionStatus.onchange = function () {
+						console.log(
+							"geolocation permission status has changed to ",
+							permissionStatus.state
+						);
+						this.micPermissionState = permissionStatus.state;
+					}.bind(this);
+				});
+		},
 	},
 	mounted() {
+		this.getMicPermission();
 		this.emitter.on("audio-record-start", (audioDeviceState) => {
 			console.log("Audio Record Started. ", audioDeviceState);
 			this.isRecording = true;

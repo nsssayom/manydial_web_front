@@ -1,9 +1,12 @@
 <template>
 	<div class="col-lg-6">
-		<h2>Go from concept to publish in minutes &amp; thats not all</h2>
+		<h2>
+			লোকেশন বেইজড নাম্বারে পাঠাতে চান প্রমোশনাল কল? অথবা নিজের জেলায়
+			চালাতে চান নির্বাচনী প্রচারণা?
+		</h2>
 		<p class="lead">
-			Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur.
+			মেনিডায়ালে আছে, লাখেরও বেশি মোবাইল নাম্বার ডাটাবেইজ। খুব সহজেই
+			মেনিডায়াল এর ডাটাবেইজ ব্যবহার করে পাঠাতে পারবেন ভয়েস কল ব্রডকাস্ট!
 		</p>
 		<ul class="feature-list list-unstyled pt-3 pb-3">
 			<li class="mb-2">
@@ -12,7 +15,7 @@
 						:icon="['fas', 'check']"
 						:style="{ color: '#407BFF' }"
 				/></span>
-				Community support
+				লোকেশন বেইজড
 			</li>
 			<li class="mb-2">
 				<span>
@@ -20,7 +23,7 @@
 						:icon="['fas', 'check']"
 						:style="{ color: '#407BFF' }"
 				/></span>
-				400+ pages
+				বিহেভিওর বেইজড
 			</li>
 			<li class="">
 				<span>
@@ -28,13 +31,14 @@
 						:icon="['fas', 'check']"
 						:style="{ color: '#407BFF' }"
 				/></span>
-				100+ header variations
+				মোবাইল টাওয়ার বেইজড
 			</li>
 		</ul>
 
 		<p class="small mt-4">
-			It’s simple to copy and move single elements <br />or even whole
-			sections between landing pages.
+			মেনিডায়াল বাংলাদেশের প্রথম ক্লিক এন্ড কল ভয়েস ব্রডকাস্টিং সার্ভিস,
+			যেটি সবচেয়ে কম কল রেটে আপনাকে সবচেয়ে সহজে হাজারও নাম্বারে কল করার
+			সুবিধা দেয়।
 		</p>
 	</div>
 </template>
