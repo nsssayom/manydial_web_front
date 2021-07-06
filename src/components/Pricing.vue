@@ -216,19 +216,19 @@ export default {
 }
 
 .wrapper-silver {
-	background: linear-gradient(#4285f4 30%, #ea4335 64%) no-repeat;
+	background: linear-gradient(#4285f4 30%, #4285f4 64%) no-repeat;
 }
 
 .wrapper-gold {
-	background: linear-gradient(#4285f4 30%, #fbbc04 64%) no-repeat;
+	background: linear-gradient(#4285f4 30%, #4285f4 64%) no-repeat;
 }
 
 .wrapper-platinum {
-	background: linear-gradient(#4285f4 30%, #34a853 64%) no-repeat;
+	background: linear-gradient(#4285f4 30%, #4285f4 64%) no-repeat;
 }
 
 .wrapper-diamond {
-	background: linear-gradient(#4285f4 30%, #7b1fa2 64%) no-repeat;
+	background: linear-gradient(#4285f4 30%, #4285f4 64%) no-repeat;
 }
 
 .pricing-wrapper {

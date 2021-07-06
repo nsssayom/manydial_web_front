@@ -16,6 +16,7 @@
     "@popperjs/core": "^2.9.2",
     "bootstrap": "^5.0.0-beta3",
     "core-js": "^3.6.5",
+    "jquery": "^3.6.0",
     "mdue": "^0.1.4",
     "mitt": "^3.0.0",
     "vue": "^3.0.0",

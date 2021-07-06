@@ -355,13 +355,7 @@ Members
 /*////////////////////////////
 Pricing
 ///////////////////////////*/
-.pricing-wrapper {
-    background: linear-gradient(#4285f4 60%, #ea4335 64%) left/50% no-repeat,
-        linear-gradient(#4285f4 30%, #34a853 34%, #34a853 50%, transparent 54%),
-        linear-gradient(270deg, #fbbc04 15%, #ea4335 23%);
-    padding: 4px;
-    border-radius: 4px;
-}
+
 
 .pricing-container {
     background-color: #ffffff;

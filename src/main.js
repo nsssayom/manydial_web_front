@@ -40,6 +40,7 @@ const app = createApp(App);
 app.use(AudioVisual);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.config.globalProperties.emitter = emitter;
+
 app.mount('#app');
 
 /* createApp(App)
