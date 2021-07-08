@@ -46,9 +46,18 @@
 					</li>
 				</ul>
 
+				<!-- TODO: Add a dropdown with balance, number and logout  -->
+				<!-- <div
+					v-show="phoneNumber !== null"
+					class="btn btn-outline-primary disabled"
+					id="balance-button"
+				>
+					{{ phoneNumber }}
+				</div> -->
+
 				<div
 					v-show="balance !== null"
-					class="btn btn-outline-dark disabled"
+					class="btn btn-outline-primary disabled"
 					id="balance-button"
 				>
 					{{ " ব্যালান্স:  " + " ৳" + balance }}
@@ -69,6 +78,9 @@ export default {
 	computed: {
 		balance: function () {
 			return this.$store.state.auth.user.balance;
+		},
+		phoneNumber: function () {
+			return this.$store.state.auth.user.phoneNumber;
 		},
 	},
 };

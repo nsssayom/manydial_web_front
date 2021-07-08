@@ -6,7 +6,7 @@ export const auth = {
 		return {
 			user: {
 				phoneNumber: null,
-				balance: null,
+				balance: 100,
 				id_info: null,
 			},
 			token: {

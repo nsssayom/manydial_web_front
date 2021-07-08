@@ -72,7 +72,7 @@
 				</button>
 				<ul class="dropdown-menu">
 					<li>
-						<a class="dropdown-item" href="#"
+						<a class="dropdown-item" href="#" @click="audioUpload"
 							><font-awesome-icon
 								:icon="['fas', 'upload']"
 								:style="{ color: '0288D1' }"
@@ -202,10 +202,11 @@ export default {
 		},
 
 		formClear: function () {
+			// TODO: Add recipientValid logic later
 			if (
-				this.audioSource &&
-				this.otpStatus === "verify_success" &&
-				this.recipientValid
+				this.recordState === "record_success" &&
+				this.otpStatus === "verify_success"
+				//&& this.recipientValid
 			) {
 				return true;
 			}
@@ -235,6 +236,18 @@ export default {
 			} else {
 				this.$store.dispatch("data/setRecordState", "record_stop");
 			}
+		},
+		audioUpload() {
+			var input = document.createElement("input");
+			input.type = "file";
+
+			input.onchange = (e) => {
+				var file = URL.createObjectURL(e.target.files[0]);
+
+				this.$store.dispatch("data/setRecordState", "record_success");
+				file ? this.$store.dispatch("data/setAudioUrl", file) : null;
+			};
+			input.click();
 		},
 		getMicPermission() {
 			navigator.permissions
