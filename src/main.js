@@ -32,17 +32,18 @@ import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 
 // Firebase credentials 
 var firebaseConfig = {
-    apiKey: "AIzaSyB5KUY_RkGVyTBgm9w8pKF1lCfdlJRL0jo",
-    authDomain: "manydial.firebaseapp.com",
-    projectId: "manydial",
-    storageBucket: "manydial.appspot.com",
-    messagingSenderId: "1064723673902",
-    appId: "1:1064723673902:web:d311d78fccca508aab00bf",
-    measurementId: "G-6BQ8VRW67G"
+    apiKey: "AIzaSyDfW6JF6VBktJxW8CDlQksjumsTs84PrDg",
+    authDomain: "manydial-c4ab2.firebaseapp.com",
+    projectId: "manydial-c4ab2",
+    storageBucket: "manydial-c4ab2.appspot.com",
+    messagingSenderId: "707421704446",
+    appId: "1:707421704446:web:62632c57553cbf09ba55af",
+    measurementId: "G-Z895ENQJTB"
 };
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig)
+firebase.analytics();
 
 const app = createApp(App);
 app.use(AudioVisual);
