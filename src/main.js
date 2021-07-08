@@ -1,7 +1,5 @@
 import {
     createApp,
-    // eslint-disable-next-line no-unused-vars
-    h
 } from 'vue'
 import App from './App.vue'
 
@@ -21,25 +19,16 @@ import "firebase/auth";
 
 import store from "./store";
 
-library.add(faMicrophone);
-library.add(faCircle);
-library.add(faPlay);
-library.add(faUpload);
-library.add(faDownload);
-library.add(faKeyboard);
-library.add(faCheck);
-library.add(faCheckSquare);
-library.add(faFacebook);
-library.add(faInstagram);
-library.add(faTwitter);
-library.add(faYoutube);
-library.add(faTimesCircle);
-library.add(faLinkedin);
-library.add(faWhatsapp);
-library.add(faArrowLeft);
-library.add(faSpinner);
+// add font-awesome icons to library
+library.add(faMicrophone, faCircle, faPlay, faUpload,
+    faDownload, faKeyboard, faCheck, faCheckSquare,
+    faFacebook, faInstagram, faTwitter,
+    faYoutube, faTimesCircle, faLinkedin,
+    faWhatsapp, faArrowLeft, faSpinner, faCheckCircle);
+
 
 import AudioVisual from 'vue-audio-visual';
+import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 
 // Firebase credentials 
 var firebaseConfig = {

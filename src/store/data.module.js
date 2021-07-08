@@ -5,7 +5,7 @@ export const data = {
 			audio: {
 				recordState: 'prompt', // 'record_wait' 'record_start', "record_stop", 'record_success', 'record_failed'
 				audioUrl: null,
-				audioDuration: null,
+				audioDuration: 0,
 			},
 			recipients: [],
 			currentForm: "record" // "id", "invoice"
@@ -17,10 +17,17 @@ export const data = {
 			if (recordState !== "record_success") {
 				commit('updateAudioUrl', null);
 			}
+			if (recordState === "record_wait") {
+				commit('resetAudioDuration');
+			}
 		},
 
 		setAudioUrl ({ commit }, audioUrl) {
 			commit('updateAudioUrl', audioUrl);
+		},
+
+		incrementAudioTime ({ commit }) {
+			commit('updateAudioDuration');
 		},
 
 		setRecipients ({ commit }, recipients) {
@@ -44,6 +51,15 @@ export const data = {
 			// TODO: Calculate audio duration
 			//state.audio.audioDuration = audioUrl.duration;
 		},
+
+		updateAudioDuration (state) {
+			state.audio.audioDuration = state.audio.audioDuration + 1;
+		},
+
+		resetAudioDuration (state) {
+			state.audio.audioDuration = 0;
+		},
+
 		updateRecipient (state, recipients) {
 			state.recipients = recipients;
 		},
@@ -52,4 +68,12 @@ export const data = {
 			state.form = currentForm;
 		},
 	},
+	getters: {
+		recordingTime (state) {
+			const raw_seconds = state.audio.audioDuration;
+			var mins = Math.floor(raw_seconds / 60).toString();//.padStart(2, '0');
+			var secs = (raw_seconds - (mins * 60)).toString().padStart(2, '0');
+			return mins + ":" + secs;
+		},
+	}
 };

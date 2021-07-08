@@ -56,7 +56,7 @@
 				</div> -->
 
 				<div
-					v-show="balance !== null"
+					v-show="balance !== null && otpStatus === 'verify_success'"
 					class="btn btn-outline-primary disabled"
 					id="balance-button"
 				>
@@ -81,6 +81,9 @@ export default {
 		},
 		phoneNumber: function () {
 			return this.$store.state.auth.user.phoneNumber;
+		},
+		otpStatus: function () {
+			return this.$store.state.auth.otpState.otpStatus;
 		},
 	},
 };

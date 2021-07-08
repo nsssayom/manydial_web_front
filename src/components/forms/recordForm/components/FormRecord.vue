@@ -6,17 +6,54 @@
 		v-show="otpStatus === 'sent_success' || otpStatus === 'verify_failed'"
 	/>
 
+	<!-- OTP verify success  starts-->
+	<div class="row pt-3" v-show="otpStatus === 'verify_success'">
+		<div class="col-12">
+			<div class="col-2 py-1 text-center"></div>
+
+			<svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+				<symbol
+					id="check-circle-fill"
+					fill="currentColor"
+					viewBox="0 0 16 16"
+				>
+					<path
+						d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
+					/>
+				</symbol>
+			</svg>
+
+			<div
+				class="
+					alert alert-success
+					d-flex
+					align-items-center
+					shadow
+					rounded
+				"
+				role="alert"
+			>
+				<svg
+					class="bi flex-shrink-0 me-2"
+					width="24"
+					height="24"
+					role="img"
+					aria-label="Success:"
+				>
+					<use xlink:href="#check-circle-fill" />
+				</svg>
+				<div>OTP verification successfull</div>
+			</div>
+		</div>
+	</div>
+	<!-- OTP verify success  ends -->
+
 	<!-- OTP Sending failed errror starts-->
 	<div class="row pt-3" v-show="otpStatus === 'sent_failed'">
 		<div class="col-12">
 			<div class="alert alert-danger" role="alert">
-				Microphone permission is not available. Please
-				<a
-					href="https://support.google.com/chrome/answer/3296214?hl=en"
-					target="_blank"
-					>reset</a
-				>
-				your browser settings.
+				Could not send OTP at this moment. Please
+				<a href="javascript:window.location.reload(true)">try again.</a>
 			</div>
 		</div>
 	</div>
@@ -45,7 +82,7 @@
 
 						<div class="col-4 py-1 ms-auto">
 							<p class="text-end text-primary unselectable">
-								0:00
+								{{ recordingTime }}
 							</p>
 						</div>
 					</div>
@@ -224,6 +261,11 @@ export default {
 		audioSource: function () {
 			return this.$store.state.data.audio.audioUrl;
 		},
+
+		recordingTime: function () {
+			//console.log(this.$store.getters["data/recordingTime"]);
+			return this.$store.getters["data/recordingTime"];
+		},
 	},
 	methods: {
 		toogleRecord() {
@@ -240,6 +282,7 @@ export default {
 		audioUpload() {
 			var input = document.createElement("input");
 			input.type = "file";
+			input.accept = "audio/mp3, audio/wav, audio/webm";
 
 			input.onchange = (e) => {
 				var file = URL.createObjectURL(e.target.files[0]);

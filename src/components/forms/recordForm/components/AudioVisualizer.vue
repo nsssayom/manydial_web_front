@@ -23,6 +23,8 @@ export default {
 			media: null,
 			mediaRecorder: null,
 			audioUrl: null,
+			//interval for clock
+			interval: null,
 		};
 	},
 	props: {
@@ -61,14 +63,23 @@ export default {
 				this.media = media;
 				this.mediaRecorder = new MediaRecorder(media);
 
+				// Start audio record
+				this.mediaRecorder.start();
+				this.$store.dispatch("data/setRecordState", "record_start");
+
+				if (this.recordState === "record_start") {
+					this.interval = setInterval(this.incrementTime, 1000);
+				}
+
 				let audioChunks = [];
 				this.mediaRecorder.ondataavailable = function (e) {
 					console.log("Pushing data");
 					audioChunks.push(e.data);
 				};
 
-				this.mediaRecorder.onstop = function (e) {
-					console.log(e);
+				this.mediaRecorder.onstop = function () {
+					clearInterval(this.interval);
+
 					const audioBlob = new Blob(audioChunks, {
 						type: "audio/webm; codecs=opus",
 					});
@@ -82,13 +93,11 @@ export default {
 					this.$store.dispatch("data/setAudioUrl", this.audioUrl);
 				}.bind(this);
 
-				// Start audio record
-				this.mediaRecorder.start();
-				this.$store.dispatch("data/setRecordState", "record_start");
-
 				// Time-out for 3 mins
 				setTimeout(() => {
-					this.stopRecord();
+					if (this.recordState === "record_start") {
+						this.stopRecord();
+					}
 				}, 180000);
 			});
 		},
@@ -97,6 +106,9 @@ export default {
 			this.media.getTracks().forEach(function (track) {
 				track.stop();
 			});
+		},
+		incrementTime() {
+			this.$store.dispatch("data/incrementAudioTime");
 		},
 	},
 	watch: {

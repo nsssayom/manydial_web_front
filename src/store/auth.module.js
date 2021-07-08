@@ -8,6 +8,7 @@ export const auth = {
 				phoneNumber: null,
 				balance: 100,
 				id_info: null,
+				firebaseUserContext: null,
 			},
 			token: {
 				_token: null,
@@ -50,7 +51,7 @@ export const auth = {
 			return state.otpState.confirmationResult.confirm(code).then(
 				verifyResult => {
 					console.log(verifyResult);
-					commit('otpVerifySuccess');
+					commit('otpVerifySuccess', verifyResult);
 					return Promise.resolve(verifyResult);
 				},
 				error => {
@@ -77,8 +78,9 @@ export const auth = {
 			state.otpState.otpStatus = "prompt";
 		},
 
-		otpVerifySuccess (state) {
+		otpVerifySuccess (state, firebaseUserContext) {
 			state.otpState.otpStatus = "verify_success";
+			state.otpState.user.firebaseUserContext = firebaseUserContext;
 		},
 
 		otpVerifyFailed (state) {
