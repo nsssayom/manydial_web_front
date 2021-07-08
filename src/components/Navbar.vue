@@ -47,7 +47,7 @@
 				</ul>
 
 				<div
-					v-show="balance !== 'none'"
+					v-show="balance !== null"
 					class="btn btn-outline-dark disabled"
 					id="balance-button"
 				>
@@ -66,10 +66,9 @@ export default {
 	components: {
 		Menu,
 	},
-	props: {
-		balance: {
-			type: String,
-			default: "0",
+	computed: {
+		balance: function () {
+			return this.$store.state.auth.user.balance;
 		},
 	},
 };

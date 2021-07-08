@@ -1,29 +1,43 @@
 <template>
 	<!-- Mobile number input strats -->
-	<phone-input-row v-show="!OTPSent" />
+	<phone-input-row v-show="otpStatus === 'prompt'" />
 	<!-- Mobile number input ends -->
-	<OTPForm v-show="OTPSent" />
+	<OTPForm
+		v-show="otpStatus === 'sent_success' || otpStatus === 'verify_failed'"
+	/>
+
+	<!-- OTP Sending failed errror starts-->
+	<div class="row pt-3" v-show="otpStatus === 'sent_failed'">
+		<div class="col-12">
+			<div class="alert alert-danger" role="alert">
+				Microphone permission is not available. Please
+				<a
+					href="https://support.google.com/chrome/answer/3296214?hl=en"
+					target="_blank"
+					>reset</a
+				>
+				your browser settings.
+			</div>
+		</div>
+	</div>
+	<!-- OTP Sending failed errror ends -->
 
 	<!-- Voice input starts -->
 	<div class="row pt-3">
 		<div class="col-8">
 			<div class="card shadow bg-body rounded">
 				<div class="card-body" ref="visualizer-card">
-					<div class="row" @click="toogleRecord">
+					<div
+						class="row"
+						@click="toogleRecord"
+						:disabled="recordState !== 'record_wait'"
+					>
 						<div class="col-2 py-1 text-center">
 							<font-awesome-icon
 								:icon="['fas', 'microphone']"
 								:style="{ color: recordIconColor }"
 							/>
 						</div>
-
-						<!-- <div class="col-1 py-1 me-auto">
-							<font-awesome-icon
-								@click="tooglePlay"
-								:icon="['fas', 'play']"
-								:style="{ color: '#388E3C' }"
-							/>
-						</div> -->
 
 						<div class="col-6">
 							<AudioVisualizer :numLine="10" :widthCan="100" />
@@ -95,6 +109,7 @@
 				controls
 				:src="audioSource"
 				class="shadow p-3 bg-body rounded"
+				controlsList="nodownload"
 			></audio>
 		</div>
 
@@ -173,44 +188,53 @@ export default {
 	name: "FormRecord",
 	data() {
 		return {
-			isRecordingPrep: false,
-			isRecording: false,
-			audioSource: null,
 			micPermissionState: "",
-			OTPSent: false,
-			OTPSuccess: null,
-			OTPFailed: null,
 		};
 	},
 	computed: {
 		recordIconColor: function () {
-			if (this.isRecording) {
-				return "FF0000";
-			} else if (this.isRecordingPrep && !this.isRecording) {
+			if (this.recordState === "record_wait") {
 				return "FFA000";
+			} else if (this.recordState === "record_start") {
+				return "FF0000";
 			}
 			return "#407BFF";
 		},
 
 		formClear: function () {
-			return this.OTPSuccess && this.audioSource ? true : false;
+			if (
+				this.audioSource &&
+				this.otpStatus === "verify_success" &&
+				this.recipientValid
+			) {
+				return true;
+			}
+			return false;
+		},
+
+		otpStatus: function () {
+			return this.$store.state.auth.otpState.otpStatus;
+		},
+
+		recordState: function () {
+			return this.$store.state.data.audio.recordState;
+		},
+
+		audioSource: function () {
+			return this.$store.state.data.audio.audioUrl;
 		},
 	},
 	methods: {
 		toogleRecord() {
-			this.isRecordingPrep = !this.isRecordingPrep;
-
-			if (this.micPermissionState !== "denied") {
-				this.emitter.emit("record-toogle", this.isRecordingPrep);
+			if (
+				this.recordState === "prompt" ||
+				this.recordState === "record_success" ||
+				this.recordState === "record_failed"
+			) {
+				this.$store.dispatch("data/setRecordState", "record_wait");
+			} else {
+				this.$store.dispatch("data/setRecordState", "record_stop");
 			}
-
-			if (this.isRecordingPrep) {
-				this.hidePlayer();
-				this.getMicPermission();
-			}
-		},
-		hidePlayer() {
-			this.audioSource = null;
 		},
 		getMicPermission() {
 			navigator.permissions
@@ -227,25 +251,12 @@ export default {
 					}.bind(this);
 				});
 		},
+		hidePlayer() {
+			this.$store.dispatch("data/setRecordState", "prompt");
+		},
 	},
 	mounted() {
 		this.getMicPermission();
-		this.emitter.on("audio-record-start", (audioDeviceState) => {
-			console.log("Audio Record Started. ", audioDeviceState);
-			this.isRecording = true;
-		});
-
-		this.emitter.on("audio-record-success", (audioURL) => {
-			console.log("Audio Record Complete. URL:", `value: ${audioURL}`);
-			this.audioSource = audioURL;
-			this.isRecordingPrep = false;
-			this.isRecording = false;
-		});
-
-		this.emitter.on("phone-number-input", (phoneNumber) => {
-			console.log("Sending OTP to", phoneNumber);
-			this.OTPSent = true;
-		});
 	},
 };
 </script>

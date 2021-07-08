@@ -16,12 +16,14 @@
     "@popperjs/core": "^2.9.2",
     "bootstrap": "^5.0.0-beta3",
     "core-js": "^3.6.5",
+    "es6-promise": "^4.2.8",
+    "firebase": "^8.7.0",
     "jquery": "^3.6.0",
     "mdue": "^0.1.4",
-    "mitt": "^3.0.0",
     "vue": "^3.0.0",
     "vue-audio-recorder": "^3.0.1",
-    "vue-audio-visual": "^2.2.2"
+    "vue-audio-visual": "^2.2.2",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

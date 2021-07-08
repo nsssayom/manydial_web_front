@@ -9,7 +9,10 @@
 				autocomplete="off"
 				maxLength="1"
 			>
-				<div class="input-group">
+				<div
+					class="input-group"
+					:class="{ 'failed-otp': otpStatus === 'verify_failed' }"
+				>
 					<input
 						type="number"
 						id="digit-1"
@@ -114,19 +117,50 @@
 			</div>
 		</div>
 		<div class="col-4">
-			<button
-				class="
-					form-control
-					btn btn-outline-primary
-					shadow
-					py-3 py-xs-0
-					my-xs-0
-				"
-				type="button"
-				id="btn-get-otp"
+			<div
+				class="btn-group d-flex"
+				role="group"
+				aria-label="otp-button-group"
 			>
-				ওটিপি লিখুন
-			</button>
+				<button
+					class="
+						form-control
+						btn btn-primary
+						w-100
+						shadow
+						py-3 py-xs-0
+						my-xs-0
+					"
+					type="button"
+					id="btn-get-otp"
+					:disabled="!otp"
+					@click="onVerifyOtp"
+				>
+					<font-awesome-icon
+						class="otp-btn-icon"
+						:icon="['fas', 'check']"
+						:style="{ color: 'white' }"
+					/>
+				</button>
+				<button
+					class="
+						form-control
+						btn btn-primary
+						w-100
+						shadow
+						py-3 py-xs-0
+						my-xs-0
+					"
+					@click="onChangePhoneNumber"
+					type="button"
+					id="btn-cancel-otp"
+				>
+					<font-awesome-icon
+						:icon="['fas', 'arrow-left']"
+						:style="{ color: 'white' }"
+					/>
+				</button>
+			</div>
 		</div>
 	</div>
 </template>
@@ -195,6 +229,19 @@ export default {
 		printKey: function (e) {
 			alert(e.keyCode);
 		},
+
+		onChangePhoneNumber: function () {
+			this.$store
+				.dispatch("auth/changePhoneNumber")
+				.then(() => console.log("Prmpt for phone number again"));
+		},
+
+		onVerifyOtp: function () {
+			this.$store
+				.dispatch("auth/verifyOtp", this.otp)
+				.then((response) => console.log("Verify OTP Success", response))
+				.catch((error) => console.log("Verify OTP failed", error));
+		},
 	},
 	computed: {
 		digits: function () {
@@ -206,6 +253,9 @@ export default {
 				this.digit_5,
 				this.digit_6,
 			];
+		},
+		otpStatus: function () {
+			return this.$store.state.auth.otpState.otpStatus;
 		},
 	},
 	created() {
@@ -221,14 +271,15 @@ export default {
 				this.digit_5 !== "" &&
 				this.digit_6 !== ""
 			) {
-				console.log(
+				this.otp =
 					this.digit_1 +
-						this.digit_2 +
-						this.digit_3 +
-						this.digit_4 +
-						this.digit_5 +
-						this.digit_6
-				);
+					this.digit_2 +
+					this.digit_3 +
+					this.digit_4 +
+					this.digit_5 +
+					this.digit_6;
+			} else {
+				this.otp = null;
 			}
 		},
 	},
@@ -243,6 +294,15 @@ export default {
 	}
 }
 
+#btn-cancel-otp {
+	background-color: #ff9e80 !important;
+	border-color: #ff9e80 !important;
+}
+
+#btn-cancel-otp:hover {
+	background-color: #ff6e40 !important;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
@@ -255,17 +315,6 @@ input[type="number"] {
 }
 
 .digit-group input {
-	/* width: 50px;
-	height: 50px; 
-	background-color: #5c5c64;
-	border: none;
-	line-height: 50px;
-	text-align: center;
-	font-size: 24px;
-	font-family: "Raleway", sans-serif;
-	font-weight: 200;
-	color: white;
-	margin: 0 2px; */
 	font-size: 16px;
 	font-family: "Raleway", sans-serif;
 	font-weight: 900;
@@ -285,5 +334,9 @@ input[type="number"] {
 
 #digit-6 {
 	margin-right: 0px !important;
+}
+
+.failed-otp > input {
+	background-color: #ffcdd2 !important;
 }
 </style>

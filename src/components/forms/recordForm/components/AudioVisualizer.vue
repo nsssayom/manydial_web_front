@@ -11,18 +11,6 @@
 			:line-width="5"
 			:connect-destination="false"
 		/>
-		<!-- <av-media
-      :media="media"
-      type="frequ"
-      line-color="407BFF"
-      :canv-width="30"
-      :canv-height="30"
-      :frequ-line-cap="true"
-      :frequ-lnum="3"
-      :line-width="6"
-      
-    /> -->
-		<!-- <h1>{{ isMicPermitted }}</h1> -->
 	</div>
 </template>
 
@@ -57,6 +45,9 @@ export default {
 		canWidth: function () {
 			return this.widthCan;
 		},
+		recordState: function () {
+			return this.$store.state.data.audio.recordState;
+		},
 	},
 	methods: {
 		startRecord() {
@@ -84,14 +75,16 @@ export default {
 					audioChunks = [];
 					this.audioUrl = URL.createObjectURL(audioBlob);
 					console.log("New Audio URL: ", this.audioUrl);
-					this.emitter.emit("audio-record-success", this.audioUrl);
+					this.$store.dispatch(
+						"data/setRecordState",
+						"record_success"
+					);
+					this.$store.dispatch("data/setAudioUrl", this.audioUrl);
 				}.bind(this);
 
+				// Start audio record
 				this.mediaRecorder.start();
-				this.emitter.emit(
-					"audio-record-start",
-					this.mediaRecorder.state
-				);
+				this.$store.dispatch("data/setRecordState", "record_start");
 
 				// Time-out for 3 mins
 				setTimeout(() => {
@@ -106,12 +99,18 @@ export default {
 			});
 		},
 	},
+	watch: {
+		recordState(newRecordState) {
+			if (newRecordState === "record_wait") {
+				this.startRecord();
+			} else if (newRecordState === "record_stop") {
+				this.stopRecord();
+			}
+		},
+	},
 	mounted() {
 		this.audioChunks = [];
-		this.emitter.on("record-toogle", (value) => {
-			console.log("record-toogle received!", `value: ${value}`);
-			value ? this.startRecord() : this.stopRecord();
-		});
+		console.log(this.recordState);
 	},
 };
 </script>

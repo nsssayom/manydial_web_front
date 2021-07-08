@@ -1,5 +1,5 @@
 <template>
-	<Navbar balance="100"></Navbar>
+	<Navbar></Navbar>
 	<section id="home">
 		<input-form />
 	</section>
@@ -30,7 +30,7 @@
 
 <script>
 import Navbar from "./components/Navbar.vue";
-import InputForm from "./components/InputForm.vue";
+import InputForm from "./components/forms/recordForm/RecordForm.vue";
 import Services from "./components/Services.vue";
 import Capacity from "./components/Capacity.vue";
 import Pricing from "./components/Pricing.vue";

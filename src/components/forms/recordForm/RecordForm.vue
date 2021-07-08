@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import FormRecord from "./forms/FormRecord.vue";
-import FormIntro from "./forms/FormIntro.vue";
+import FormRecord from "./components/FormRecord.vue";
+import FormIntro from "./components/FormIntro.vue";
 
 export default {
 	name: "InputForm",
