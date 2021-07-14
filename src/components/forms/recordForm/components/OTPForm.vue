@@ -239,7 +239,17 @@ export default {
 		onVerifyOtp: function () {
 			this.$store
 				.dispatch("auth/verifyOtp", this.otp)
-				.then((response) => console.log("Verify OTP Success", response))
+				.then((response) => {
+					console.log("Verify OTP Success", response);
+					this.$store
+						.dispatch("auth/getFirebaseIDToken")
+						.then((response) =>
+							console.log("Firebase ID Token", response)
+						)
+						.catch((error) =>
+							console.log("Firebase ID Token", error)
+						);
+				})
 				.catch((error) => console.log("Verify OTP failed", error));
 		},
 	},

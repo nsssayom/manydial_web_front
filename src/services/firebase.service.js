@@ -17,6 +17,14 @@ class FirebaseService {
                 throw error;
             });
     }
+
+    getTokenID () {
+        return firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function (idToken) {
+            return idToken;
+        }).catch(function (error) {
+            throw error;
+        });
+    }
 }
 
 export default new FirebaseService();
