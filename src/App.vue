@@ -8,9 +8,9 @@
 		<services />
 	</section>
 
-	<section id="capacity">
+	<!-- <section id="capacity">
 		<capacity />
-	</section>
+	</section> -->
 
 	<section id="pricing" class="bg-light">
 		<pricing />
@@ -32,7 +32,7 @@
 import Navbar from "./components/Navbar.vue";
 import InputForm from "./components/forms/recordForm/RecordForm.vue";
 import Services from "./components/Services.vue";
-import Capacity from "./components/Capacity.vue";
+/* import Capacity from "./components/Capacity.vue"; */
 import Pricing from "./components/Pricing.vue";
 import Faq from "./components/Faq.vue";
 import ContactUs from "./components/ContactUs.vue";
@@ -45,7 +45,7 @@ export default {
 		Navbar,
 		InputForm,
 		Services,
-		Capacity,
+		/* Capacity, */
 		Pricing,
 		Faq,
 		ContactUs,
@@ -53,6 +53,15 @@ export default {
 		Copyright,
 	},
 	mounted() {},
+	created() {
+		const user = localStorage.getItem("user");
+		if (user) {
+			this.$store
+				.dispatch("auth/tokenAuth", user.token)
+				.then(() => console.log("Login Authenticated"))
+				.catch((err) => console.log("Login Failed", err));
+		}
+	},
 };
 </script>
 

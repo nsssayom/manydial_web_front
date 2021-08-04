@@ -42,7 +42,12 @@
 				>
 					<use xlink:href="#check-circle-fill" />
 				</svg>
-				<div>OTP verification successfull</div>
+				<div>
+					<b>{{
+						phoneNumber ? phoneNumber /*.substring(3)*/ : null
+					}}</b>
+					<!-- নম্বরটি ভেরিভাই করা হয়েছে -->
+				</div>
 			</div>
 		</div>
 	</div>
@@ -52,8 +57,10 @@
 	<div class="row pt-3" v-show="otpStatus === 'sent_failed'">
 		<div class="col-12">
 			<div class="alert alert-danger" role="alert">
-				Could not send OTP at this moment. Please
-				<a href="javascript:window.location.reload(true)">try again.</a>
+				আপনার নম্বরটি ভেরিভাই করা যায় নি। অনুগ্রহপূর্বক
+				<a href="javascript:window.location.reload(true)"
+					>আবার চেষ্টা করুন</a
+				>
 			</div>
 		</div>
 	</div>
@@ -198,6 +205,10 @@
 	</div>
 	<!-- Audio player ends -->
 
+	<!-- Time input number row starts -->
+	<date-time-input-row />
+	<!-- Time input number row ends -->
+
 	<!-- Recipient number row starts-->
 	<recipient-number-row />
 	<!-- Recipient number row finished -->
@@ -214,6 +225,7 @@ import AudioVisualizer from "./AudioVisualizer.vue";
 import OTPForm from "./OTPForm.vue";
 import PhoneInputRow from "./PhoneInputRow.vue";
 import RecipientNumberRow from "./RecipientNumberRow.vue";
+import DateTimeInputRow from "./DateTimeInputRow.vue";
 
 export default {
 	components: {
@@ -221,6 +233,7 @@ export default {
 		PhoneInputRow,
 		OTPForm,
 		RecipientNumberRow,
+		DateTimeInputRow,
 	},
 	name: "FormRecord",
 	data() {
@@ -241,8 +254,9 @@ export default {
 		formClear: function () {
 			// TODO: Add recipientValid logic later
 			if (
-				this.recordState === "record_success" &&
-				this.otpStatus === "verify_success"
+				//this.recordState === "record_success" &&
+				//this.otpStatus === "verify_success" &&
+				this.dateSelected
 				//&& this.recipientValid
 			) {
 				return true;
@@ -254,12 +268,25 @@ export default {
 			return this.$store.state.auth.otpState.otpStatus;
 		},
 
+		/* recipientValid: function () {}, */
+
+		dateSelected: function () {
+			return this.$store.state.data.preferredDate;
+		},
+
 		recordState: function () {
 			return this.$store.state.data.audio.recordState;
 		},
 
 		audioSource: function () {
 			return this.$store.state.data.audio.audioUrl;
+		},
+
+		phoneNumber: function () {
+			if (this.$store.state.auth.user.dbUser) {
+				return this.$store.state.auth.user.dbUser.phone_number;
+			}
+			return null;
 		},
 
 		recordingTime: function () {
@@ -296,11 +323,11 @@ export default {
 			navigator.permissions
 				.query({ name: "microphone" })
 				.then((permissionStatus) => {
-					console.log(permissionStatus.state);
+					//console.log(permissionStatus.state);
 					this.micPermissionState = permissionStatus.state;
 					permissionStatus.onchange = function () {
 						console.log(
-							"geolocation permission status has changed to ",
+							"mic permission status has changed to ",
 							permissionStatus.state
 						);
 						this.micPermissionState = permissionStatus.state;

@@ -3,9 +3,17 @@
 		<div class="col-8">
 			<textarea
 				class="form-control"
+				:class="{
+					'invalid-recipients': !isNumbersValid,
+					'valid-recipients': isNumbersValid,
+				}"
+				type="number"
 				id="recipient-numbers"
-				rows="2"
-				placeholder="প্রাপকদের নম্বর লিখুন বা, আপলোড করুন"
+				rows="4"
+				placeholder="প্রাপকদের নম্বর লিখুন বা, আপলোড করুন 
+01701112233 
+01610203040"
+				v-model="recipientNumber"
 			></textarea>
 		</div>
 
@@ -73,6 +81,29 @@
 <script>
 export default {
 	name: "RecipientNumberRow",
+	data() {
+		return {
+			recipientNumber: "",
+			tokenizedNumbers: [],
+		};
+	},
+	watch: {
+		recipientNumber(newString) {
+			this.tokenizedNumbers = newString.split(/\r?\n/);
+			//if (split_string.match("[0]{1}[1]{1}[3456789]{1}[0-9]{8}")) {
+			console.log(this.isNumbersValid);
+		},
+	},
+	computed: {
+		isNumbersValid() {
+			if (this.recipientNumber.length === 0) {
+				return false;
+			}
+			return this.tokenizedNumbers.every((number) => {
+				return number.match("^(\\+88)?01[3-7]{1}[0-9]{8}$");
+			});
+		},
+	},
 };
 </script>
 
@@ -92,5 +123,13 @@ export default {
 	font-size: 0.5em; /* 14px/16=0.875em */
 	line-height: normal;
 	text-align: justify;
+}
+
+.invalid-recipients:focus {
+	box-shadow: 0 0 0 0.25rem rgb(239 83 80 / 50%) !important;
+}
+
+.valid-recipients:focus {
+	box-shadow: 0 0 0 0.25rem rgb(102 187 106 / 50%) !important;
 }
 </style>

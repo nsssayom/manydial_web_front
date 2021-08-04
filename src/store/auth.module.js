@@ -1,4 +1,5 @@
 import FirebaseService from '../services/firebase.service';
+import userService from '../services/user.service';
 
 export const auth = {
     namespaced: true,
@@ -6,15 +7,8 @@ export const auth = {
         return {
             user: {
                 phoneNumber: null,
-                balance: 100,
-                id_info: null,
+                dbUser: null,
                 firebaseUserContext: null,
-                firebaseIDToken: null,
-            },
-            token: {
-                _token: null,
-                _firebaseUUID: null,
-                _token_expiry: null
             },
             otpState: {
                 inputOtp: null,
@@ -25,6 +19,19 @@ export const auth = {
         }
     },
     actions: {
+        tokenAuth ({ commit }, token) {
+            return userService.authUser().then(
+                user => {
+                    commit('userAuthSuccess', user, token);
+                    return Promise.resolve(token);
+                },
+                error => {
+                    commit('userAuthFailed');
+                    return Promise.reject(error);
+                }
+            )
+        },
+
         sendOtp ({ commit }, phoneContext) {
             return FirebaseService.sendOtp(phoneContext.phoneNumber, phoneContext.appVerifier).then(
                 confirmationResult => {
@@ -59,12 +66,20 @@ export const auth = {
             );
         },
 
-        getFirebaseIDToken ({ commit }) {
+        getFirebaseIDToken ({ commit, dispatch }) {
             return FirebaseService.getTokenID().then(idToken => {
-                commit('idTokenSuccess', idToken);
+                const _user = {
+                    token: idToken,
+                }
+                // Store firebase ID token in local storage
+                localStorage.setItem('user', JSON.stringify(_user));
+
+                // Post the firebase ID token to the server
+                dispatch('tokenAuth', idToken);
                 return Promise.resolve(idToken);
             },
                 error => {
+                    commit('otpSendFailed');
                     return Promise.reject(error);
                 })
         }
@@ -93,8 +108,17 @@ export const auth = {
             state.otpState.otpStatus = "verify_failed";
         },
 
-        idTokenSuccess (state, idToken) {
-            state.user.firebaseIDToken = idToken;
+        userAuthSuccess (state, user) {
+            state.otpState.otpStatus = "verify_success";
+            console.log(user.data);
+            state.user.dbUser = user.data;
+        },
+
+        userAuthFailed (state) {
+            state.otpState.otpStatus = "verify_failed";
+            state.user.dbUser = null;
+            state.user.firebaseUserContext = null;
+            localStorage.removeItem('user');
         }
     },
 };

@@ -59,13 +59,13 @@ export default {
 			//const phoneNumber = "+8801717018376";
 			const appVerifier = window.recaptchaVerifier;
 
-			console.log(phoneNumber);
+			//console.log(phoneNumber);
 			// Firebase sendOtp(phonenumber, appVerifier)
 			// Dispatching sendOtp action
 			this.$store
 				.dispatch("auth/sendOtp", { phoneNumber, appVerifier })
 				.then((response) => {
-					console.log("Sent OTP", response);
+					//console.log("Sent OTP", response);
 					this.firebaseConfirmationResult = response;
 				})
 				.catch((err) => {

@@ -73,7 +73,7 @@ export default {
 
 				let audioChunks = [];
 				this.mediaRecorder.ondataavailable = function (e) {
-					console.log("Pushing data");
+					//console.log("Pushing data");
 					audioChunks.push(e.data);
 				};
 
@@ -122,7 +122,7 @@ export default {
 	},
 	mounted() {
 		this.audioChunks = [];
-		console.log(this.recordState);
+		//console.log(this.recordState);
 	},
 };
 </script>

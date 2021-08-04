@@ -77,7 +77,11 @@ export default {
 	},
 	computed: {
 		balance: function () {
-			return this.$store.state.auth.user.balance;
+			if (this.$store.state.auth.user.dbUser) {
+				return this.$store.state.auth.user.dbUser.balance;
+			}
+            else 
+            return 0;
 		},
 		phoneNumber: function () {
 			return this.$store.state.auth.user.phoneNumber;

@@ -13,6 +13,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMicrophone, faCircle, faPlay, faUpload, faDownload, faKeyboard, faCheck, faCheckSquare, faTimesCircle, faArrowLeft, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faInstagram, faLinkedin, faTwitter, faWhatsapp, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
+import VCalendar from 'v-calendar';
+
 import firebase from "firebase/app";
 import "firebase/analytics";
 import "firebase/auth";
@@ -49,6 +51,7 @@ const app = createApp(App);
 app.use(AudioVisual);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.use(store);
+app.use(VCalendar);
 
 app.mount('#app');
 
