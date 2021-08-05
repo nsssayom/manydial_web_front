@@ -7,8 +7,7 @@ export const data = {
                 audioUrl: null,
                 audioDuration: 0,
             },
-            recipients: [],
-            recipients_ok: false,
+            recipients: null,
             // Need to convert to ISO String with `toISOString`
             preferredDate: null,
             currentForm: "record" // "verify", "invoice"

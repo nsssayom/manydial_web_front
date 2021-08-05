@@ -252,12 +252,12 @@ export default {
 		},
 
 		formClear: function () {
-			// TODO: Add recipientValid logic later
+			console.log("REC", this.recipientValid);
 			if (
-				//this.recordState === "record_success" &&
-				//this.otpStatus === "verify_success" &&
-				this.dateSelected
-				//&& this.recipientValid
+				this.recordState === "record_success" &&
+				this.otpStatus === "verify_success" &&
+				this.dateSelected &&
+				this.recipientValid
 			) {
 				return true;
 			}
@@ -268,7 +268,12 @@ export default {
 			return this.$store.state.auth.otpState.otpStatus;
 		},
 
-		/* recipientValid: function () {}, */
+		recipientValid: function () {
+			if (this.$store.state.data.recipients) {
+				return true;
+			}
+			return false;
+		},
 
 		dateSelected: function () {
 			return this.$store.state.data.preferredDate;

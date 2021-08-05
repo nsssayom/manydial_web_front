@@ -90,8 +90,11 @@ export default {
 	watch: {
 		recipientNumber(newString) {
 			this.tokenizedNumbers = newString.split(/\r?\n/);
-			//if (split_string.match("[0]{1}[1]{1}[3456789]{1}[0-9]{8}")) {
-			console.log(this.isNumbersValid);
+			if (this.isNumbersValid) {
+				this.$store.state.data.recipients = this.tokenizedNumbers;
+			} else {
+				this.$store.state.data.recipients = null;
+			}
 		},
 	},
 	computed: {
