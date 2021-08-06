@@ -1,7 +1,8 @@
 <template>
 	<Navbar></Navbar>
 	<section id="home">
-		<input-form />
+		<input-form v-if="currentForm === 'record'" />
+		<twilio-form v-if="currentForm === 'verify'" />
 	</section>
 
 	<section id="features">
@@ -38,12 +39,14 @@ import Faq from "./components/Faq.vue";
 import ContactUs from "./components/ContactUs.vue";
 import Footer from "./components/Footer.vue";
 import Copyright from "./components/Copyright.vue";
+import TwilioForm from "./components/forms/idForm/TwilioForm.vue";
 
 export default {
 	name: "App",
 	components: {
 		Navbar,
 		InputForm,
+		TwilioForm,
 		Services,
 		/* Capacity, */
 		Pricing,
@@ -53,6 +56,11 @@ export default {
 		Copyright,
 	},
 	mounted() {},
+	computed: {
+		currentForm: function () {
+			return this.$store.state.data.currentForm;
+		},
+	},
 	created() {
 		const user = localStorage.getItem("user");
 		if (user) {

@@ -67,7 +67,7 @@ export const data = {
         },
 
         updateCurrentForm (state, currentForm) {
-            state.form = currentForm;
+            state.currentForm = currentForm;
         },
     },
     getters: {

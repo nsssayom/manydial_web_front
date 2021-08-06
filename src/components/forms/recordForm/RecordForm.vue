@@ -21,6 +21,11 @@ export default {
 		FormRecord,
 		FormIntro,
 	},
+	computed: {
+		currentForm: function () {
+			return this.$store.state.data.currentForm;
+		},
+	},
 };
 </script>
 

@@ -214,7 +214,12 @@
 	<!-- Recipient number row finished -->
 
 	<div class="row pt-1 ps-3 me-auto col-lg-4">
-		<button type="button" class="btn btn-primary" :disabled="!formClear">
+		<button
+			type="button"
+			class="btn btn-primary"
+			:disabled="!formClear"
+			@click="submitRecordForm"
+		>
 			পরবর্তী
 		</button>
 	</div>
@@ -341,6 +346,9 @@ export default {
 		},
 		hidePlayer() {
 			this.$store.dispatch("data/setRecordState", "prompt");
+		},
+		submitRecordForm() {
+			this.$store.dispatch("data/setCurrentForm", "verify");
 		},
 	},
 	mounted() {

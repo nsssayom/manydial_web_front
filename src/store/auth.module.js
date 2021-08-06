@@ -15,15 +15,17 @@ export const auth = {
                 otpStatus: "prompt", // "sent_success" / "sent_failed" / "verify_failed" / "verify_success"
                 otpFailedCount: 0,
                 confirmationResult: null,
+                twilio_verification_code: null,
+                twilio_status: "init" // "sent" / "verified" / "not-verified" 
             }
         }
     },
     actions: {
-        tokenAuth ({ commit }, token) {
+        tokenAuth ({ commit }) {
             return userService.authUser().then(
                 user => {
-                    commit('userAuthSuccess', user, token);
-                    return Promise.resolve(token);
+                    commit('userAuthSuccess', user);
+                    return Promise.resolve(user);
                 },
                 error => {
                     commit('userAuthFailed');
@@ -82,7 +84,54 @@ export const auth = {
                     commit('otpSendFailed');
                     return Promise.reject(error);
                 })
+        },
+
+        verifyTwilio ({ commit }) {
+            return userService.verifyTwilio().then(response => {
+                commit('twilioValidationCallSuccess', response.data);
+
+                let verifyTrials = 0;
+                function verifyCheck () {
+                    userService.authUser().then(
+                        user => {
+                            verifyTrials = verifyTrials + 1;
+                            console.log(verifyTrials);
+
+                            // check maximum 20 times 
+                            if (verifyTrials > 20) {
+                                commit('twilioNotVerified');
+                                clearTimeout(timer)
+                                return Promise.reject(new Error("Twilio validation failed"));
+                            }
+
+                            if (user.data.twilio_verified) {
+                                commit('twilioVerified');
+                                clearTimeout(timer)
+                                return Promise.resolve(user);
+                            }
+
+                        },
+                        error => {
+                            commit('twilioNotVerified');
+                            clearTimeout(timer)
+                            return Promise.reject(error);
+                        }
+                    )
+                    // Checking every 5 seconds
+                    const timer = setTimeout(verifyCheck, 5000);
+                }
+                return verifyCheck();
+
+                //dispatch('tokenAuth');
+                //return Promise.resolve(response);
+            },
+                error => {
+                    console.log(error);
+                    commit('twilioValidationCallFailed');
+                    return Promise.reject(error);
+                })
         }
+
     },
     mutations: {
         otpSendSuccess (state, { phoneNumber, confirmationResult }) {
@@ -110,6 +159,12 @@ export const auth = {
 
         userAuthSuccess (state, user) {
             state.otpState.otpStatus = "verify_success";
+            if (user.data.twilio_verified) {
+                state.otpState.twilio_status = "verified";
+            }
+            else {
+                state.otpState.twilio_status = "not-verified";
+            }
             console.log(user.data);
             state.user.dbUser = user.data;
         },
@@ -119,6 +174,28 @@ export const auth = {
             state.user.dbUser = null;
             state.user.firebaseUserContext = null;
             localStorage.removeItem('user');
-        }
+        },
+
+        twilioValidationCallSuccess (state, twilioResponse) {
+            state.otpState.twilio_verification_code = twilioResponse.validationCode;
+            console.log('response', twilioResponse);
+            state.otpState.twilio_status = "sent";
+            console.log("verification call sent");
+        },
+
+        twilioValidationCallFailed (state) {
+            state.otpState.twilio_verification_code = null;
+            state.otpState.twilio_status = "not-verified";
+        },
+
+        twilioVerified (state) {
+            state.otpState.twilio_status = "verified";
+            console.log("verified");
+        },
+
+        twilioNotVerified (state) {
+            state.otpState.twilio_status = "not-verified";
+            console.log("not verified");
+        },
     },
 };
