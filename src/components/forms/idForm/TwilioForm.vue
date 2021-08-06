@@ -1,5 +1,6 @@
 <template>
 	<div class="container">
+		<!-- The whole home row -->
 		<div class="row">
 			<div class="col-12 col-xl-5">
 				<!-- Verified message starts-->
@@ -39,20 +40,31 @@
 					</div>
 				</div>
 				<!-- Verification failed message ends -->
+
+				<!-- Slot time display starts -->
+				<div class="row pt-3" v-if="callEndTime">
+					<div class="col-12">
+						<div class="alert alert-info" role="alert">
+							আপনার কলগুলো সম্পন্ন হবার সম্ভাব্য সময়
+							<b> {{ callEndTime }} </b>
+						</div>
+					</div>
+				</div>
+				<!-- Slot time display ends -->
 			</div>
 			<div class="col-12 col-xl-7" id="form-intro">
-				<form-intro />
+				<!-- <form-intro /> -->
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-import FormIntro from "../recordForm/components/FormIntro.vue";
+/* import FormIntro from "../recordForm/components/FormIntro.vue"; */
 export default {
 	name: "TwilioForm",
 	components: {
-		FormIntro,
+		/* FormIntro, */
 	},
 
 	computed: {
@@ -63,6 +75,25 @@ export default {
 		verificationCode: function () {
 			return this.$store.state.auth.otpState.twilio_verification_code;
 		},
+
+		callEndTime: function () {
+			const options = {
+				weekday: "long",
+				year: "numeric",
+				month: "long",
+				day: "numeric",
+				hour: "numeric",
+				minute: "numeric",
+			};
+			if (this.$store.state.data.slots) {
+				//return this.$store.state.data.slots;
+				return new Date(
+					this.$store.state.data.slots.slice(-1)[0].end_time
+				).toLocaleString("bn-BD", options);
+			} else {
+				return null;
+			}
+		},
 	},
 
 	mounted() {
@@ -70,6 +101,7 @@ export default {
 			console.log("verification", this.verificationStatus);
 			this.$store.dispatch("auth/verifyTwilio");
 		}
+		this.$store.dispatch("data/getSlots");
 
 		window.scrollTo(0, 0);
 	},

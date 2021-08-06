@@ -2,10 +2,13 @@ import axios from "axios";
 import authHeader from "./auth-header";
 
 class SlotService {
-    getSlot (preffered_start_time, number_of_calls) {
+    getSlots (preffered_start_time, number_of_calls) {
         const header = { 'headers': authHeader(), 'Content-Type': 'application/json' };
-        return axios.post(process.env.VUE_APP_API_BASE_URL + '/slots',
-            { preffered_start_time, number_of_calls },
+        return axios.post('api/slots',
+            {
+                preferred_start_time: preffered_start_time,
+                number_of_calls: number_of_calls
+            },
             header);
     }
 }

@@ -1,3 +1,5 @@
+import slotService from '../services/slot.service';
+
 export const data = {
     namespaced: true,
     state () {
@@ -10,7 +12,8 @@ export const data = {
             recipients: null,
             // Need to convert to ISO String with `toISOString`
             preferredDate: null,
-            currentForm: "record" // "verify", "invoice"
+            currentForm: "record", // "record", "invoice"
+            slots: null,
         }
     },
     actions: {
@@ -38,6 +41,23 @@ export const data = {
 
         setCurrentForm ({ commit }, currentForm) {
             commit('updateCurrentForm', currentForm);
+        },
+
+        getSlots ({ commit, state }) {
+            console.log("Preferred Date", state.preferredDate.toISOString());
+            console.log("Recipient Count", state.recipients.length);
+
+            return slotService.getSlots(state.preferredDate.toISOString(),
+                state.recipients.length)
+                .then(
+                    slots => {
+                        commit('updateSlots', slots);
+                        return Promise.resolve(slots);
+                    },
+                    error => {
+                        console.log(error);
+                        return Promise.reject(error);
+                    })
         },
 
     },
@@ -69,6 +89,10 @@ export const data = {
         updateCurrentForm (state, currentForm) {
             state.currentForm = currentForm;
         },
+
+        updateSlots (state, slots) {
+            state.slots = slots.data;
+        }
     },
     getters: {
         recordingTime (state) {
