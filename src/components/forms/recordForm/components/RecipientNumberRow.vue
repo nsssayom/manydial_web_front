@@ -92,10 +92,7 @@ export default {
 			this.tokenizedNumbers = newString.split(/\r?\n/);
 			if (this.isNumbersValid) {
 				this.$store.state.data.recipients = this.tokenizedNumbers;
-				console.log(
-					"Number of Recipients",
-					this.$store.state.data.recipients.length
-				);
+				console.log(this.$store.state.data.recipients);
 			} else {
 				this.$store.state.data.recipients = null;
 			}

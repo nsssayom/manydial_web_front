@@ -1,3 +1,4 @@
+import orderService from '../services/order.service';
 import slotService from '../services/slot.service';
 
 export const data = {
@@ -14,6 +15,27 @@ export const data = {
             preferredDate: null,
             currentForm: "record", // "record", "invoice"
             slots: null,
+            order: null,
+            callRateScheme: [
+                {
+                    name: 'Silver',
+                    start: 1,
+                    end: 100,
+                    rate: 3
+                },
+                {
+                    name: 'Gold',
+                    start: 101,
+                    end: 1000,
+                    rate: 2
+                },
+                {
+                    name: 'Platinum',
+                    start: 1001,
+                    end: 10000,
+                    rate: 1
+                },
+            ],
         }
     },
     actions: {
@@ -60,6 +82,33 @@ export const data = {
                     })
         },
 
+        async placeOrder ({ commit, state }) {
+
+            const audioFile = await fetch(state.audio.audioUrl)
+                .then(response => response.blob())
+                .then(blob => new File([blob], 'recording.webm', { type: 'audio/webm' }));
+
+            const slotsStr = JSON.stringify(state.slots);
+            const recipientStr = state.recipients.toString()
+
+            console.log(slotsStr);
+            console.log(recipientStr);
+
+            return orderService.placeOrder(audioFile,
+                recipientStr,
+                slotsStr)
+                .then(response => {
+                    console.log(response);
+                    commit('orderPlaceSuccess', response);
+                    return Promise.resolve(response);
+                },
+                    error => {
+                        console.log(error);
+                        commit('orderPlaceFailed', error);
+                        return Promise.reject(error);
+                    })
+        }
+
     },
     mutations: {
 
@@ -92,7 +141,15 @@ export const data = {
 
         updateSlots (state, slots) {
             state.slots = slots.data;
-        }
+        },
+
+        orderPlaceSuccess (state, order) {
+            state.order = order.data;
+        },
+
+        orderPlaceFailed (state) {
+            state.order = null;
+        },
     },
     getters: {
         recordingTime (state) {

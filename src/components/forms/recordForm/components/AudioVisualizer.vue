@@ -83,6 +83,7 @@ export default {
 					const audioBlob = new Blob(audioChunks, {
 						type: "audio/webm; codecs=opus",
 					});
+
 					audioChunks = [];
 					this.audioUrl = URL.createObjectURL(audioBlob);
 					console.log("New Audio URL: ", this.audioUrl);

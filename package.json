@@ -20,6 +20,7 @@
     "dotenv": "^10.0.0",
     "es6-promise": "^4.2.8",
     "firebase": "^8.7.0",
+    "fix-webm-duration": "^1.0.0",
     "jquery": "^3.6.0",
     "mdue": "^0.1.4",
     "v-calendar": "^3.0.0-alpha.5",

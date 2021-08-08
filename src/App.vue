@@ -1,7 +1,7 @@
 <template>
 	<Navbar></Navbar>
 	<section id="home">
-		<input-form v-if="currentForm === 'record'" />
+		<input-form v-show="currentForm === 'record'" />
 		<twilio-form v-if="currentForm === 'verify'" />
 	</section>
 
@@ -74,10 +74,6 @@ export default {
 </script>
 
 <style scoped>
-#home {
-	/* padding-top: 0px !important; */
-}
-
 @media (max-width: 1200px) {
 	section {
 		padding-top: 0px;
