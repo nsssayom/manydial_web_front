@@ -13,7 +13,7 @@
 		</div>
 
 		<div class="accordion" id="accordionFlushExample">
-			<div class="accordion-item shadow rounded">
+			<div class="accordion-item rounded mdl-border mdl-shadow">
 				<h2 class="accordion-header" id="flush-headingOne">
 					<button
 						class="accordion-button"
@@ -45,7 +45,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="accordion-item shadow rounded mt-3">
+			<div class="accordion-item mdl-border mdl-shadow rounded mt-3">
 				<h2 class="accordion-header" id="flush-headingTwo">
 					<button
 						class="accordion-button collapsed"
@@ -77,7 +77,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="accordion-item shadow rounded mt-3">
+			<div class="accordion-item mdl-border mdl-shadow rounded mt-3">
 				<h2 class="accordion-header" id="flush-headingThree">
 					<button
 						class="accordion-button collapsed"

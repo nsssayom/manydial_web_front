@@ -1,34 +1,13 @@
 <template>
-	<div
+	<div class="row align-items-center">
+		<div
 		id="carouselExampleCaptions"
 		class="carousel slide"
 		data-bs-ride="carousel"
 	>
-		<div class="carousel-indicators">
-			<button
-				type="button"
-				data-bs-target="#carouselExampleCaptions"
-				data-bs-slide-to="0"
-				class="active"
-				aria-current="true"
-				aria-label="Slide 1"
-			></button>
-			<button
-				type="button"
-				data-bs-target="#carouselExampleCaptions"
-				data-bs-slide-to="1"
-				aria-label="Slide 2"
-			></button>
-			<button
-				type="button"
-				data-bs-target="#carouselExampleCaptions"
-				data-bs-slide-to="2"
-				aria-label="Slide 3"
-			></button>
-		</div>
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<div class="px-4 text-center">
+				<div class="px-4">
 					<h1
 						class="display-5 fw-bold mx-auto col-lg-12"
 						id="intro-title"
@@ -51,7 +30,7 @@
 				</div>
 			</div>
 			<div class="carousel-item">
-				<div class="px-4 text-center">
+				<div class="px-4">
 					<h1
 						class="display-5 fw-bold mx-auto col-lg-12"
 						id="intro-title"
@@ -74,7 +53,7 @@
 				</div>
 			</div>
 			<div class="carousel-item">
-				<div class="px-4 text-center">
+				<div class="px-4">
 					<h1
 						class="display-5 fw-bold mx-auto col-lg-12"
 						id="intro-title"
@@ -116,6 +95,7 @@
 			<span class="visually-hidden">Next</span>
 		</button>
 	</div>
+	</div>
 </template>
 
 <script>
@@ -144,5 +124,8 @@ export default {
 .carousel-item-next,
 .carousel-item-prev {
 	display: block;
+}
+.carousel {
+  margin: 0 auto;
 }
 </style>

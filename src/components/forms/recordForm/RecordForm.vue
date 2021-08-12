@@ -4,7 +4,8 @@
 			<div class="col-12 col-xl-5">
 				<Form-Record />
 			</div>
-			<div class="col-12 col-xl-7" id="form-intro">
+			<div class="col-12 col-xl-7 my-auto
+			" id="form-intro">
 				<FormIntro />
 			</div>
 		</div>

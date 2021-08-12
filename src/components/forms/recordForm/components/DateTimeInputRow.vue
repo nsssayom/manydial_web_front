@@ -2,7 +2,7 @@
 	<div class="row pt-3">
 		<div class="col-12">
 			<div class="accordion" id="dateAccordion">
-				<div class="accordion-item">
+				<div class="accordion-item mdl-border mdl-shadow">
 					<h2 class="accordion-header" id="headingOne">
 						<button
 							class="accordion-button collapsed text-muted"

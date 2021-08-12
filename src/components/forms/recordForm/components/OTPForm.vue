@@ -18,7 +18,7 @@
 						id="digit-1"
 						class="
 							form-control
-							shadow
+							
 							p-3
 							bg-white
 							rounded
@@ -34,7 +34,7 @@
 						id="digit-2"
 						class="
 							form-control
-							shadow
+							
 							p-3
 							bg-white
 							rounded
@@ -51,7 +51,7 @@
 						id="digit-3"
 						class="
 							form-control
-							shadow
+							
 							p-3
 							bg-white
 							rounded
@@ -68,7 +68,7 @@
 						id="digit-4"
 						class="
 							form-control
-							shadow
+							
 							p-3
 							bg-white
 							rounded
@@ -85,7 +85,7 @@
 						id="digit-5"
 						class="
 							form-control
-							shadow
+							
 							p-3
 							bg-white
 							rounded
@@ -102,7 +102,7 @@
 						id="digit-6"
 						class="
 							form-control
-							shadow
+							
 							p-3
 							bg-white
 							rounded
@@ -127,7 +127,7 @@
 						form-control
 						btn btn-primary
 						w-100
-						shadow
+						
 						py-3 py-xs-0
 						my-xs-0
 					"
@@ -147,7 +147,7 @@
 						form-control
 						btn btn-primary
 						w-100
-						shadow
+						
 						py-3 py-xs-0
 						my-xs-0
 					"

@@ -1,9 +1,9 @@
 <template>
-	<nav class="navbar navbar-expand-xl fixed-top">
+	<nav class="navbar navbar-expand-xl fixed-top mdl-shadow">
 		<div class="container">
 			<a class="navbar-brand" href="#">
 				<img
-					src="../assets/img/ManyDIAL.svg"
+					src="../assets/img/logo.svg"
 					alt=""
 					width="150"
 					height="40"
@@ -25,16 +25,16 @@
 			</button>
 
 			<div class="collapse navbar-collapse" id="navbarText">
-				<ul class="navbar-nav me-auto mx-auto mb-2 mb-lg-0">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 					<li class="nav-item active">
 						<a class="nav-link" href="#">কল করুন</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#features">কীভাবে কল করব?</a>
 					</li>
-					<li class="nav-item">
+					<!-- <li class="nav-item">
 						<a class="nav-link" href="#capacity">সক্ষমতা</a>
-					</li>
+					</li> -->
 					<li class="nav-item">
 						<a class="nav-link" href="#pricing">মুল্য</a>
 					</li>

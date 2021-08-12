@@ -2,14 +2,14 @@
 	<div class="row pt-3">
 		<div class="col-8">
 			<textarea
-				class="form-control"
+				class="mdl-border mdl-shadow form-control"
 				:class="{
 					'invalid-recipients': !isNumbersValid,
 					'valid-recipients': isNumbersValid,
 				}"
 				type="number"
 				id="recipient-numbers"
-				rows="4"
+				rows="3"
 				placeholder="প্রাপকদের নম্বর লিখুন বা, আপলোড করুন 
 01701112233 
 01610203040"
@@ -24,7 +24,6 @@
 					type="button"
 					class="
 						btn btn-outline-primary
-						shadow
 						py-3 py-xs-0
 						my-xs-0
 						dropdown-toggle
@@ -67,7 +66,7 @@
 		</div>
 	</div>
 
-	<div class="row pt-1">
+	<div class="row pt-3">
 		<div class="col-8">
 			<p id="disclaimer-text">
 				* অংশ অংশভাক আঁইশ ইঁচড়েপাকা ঈক্ষণ ঈদৃক অংশভাগী জওয়ান অংশাঙ্কিত

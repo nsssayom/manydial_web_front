@@ -1,27 +1,27 @@
 <template>
 	<input
 		type="text"
-		class="form-control shadow p-3 bg-body rounded"
+		class="mdl-border mdl-shadow form-control p-3 bg-body rounded"
 		id="contact-name"
 		placeholder="নাম"
 		required
 	/>
 	<input
 		type="email"
-		class="form-control shadow p-3 bg-body rounded mt-3"
+		class="mdl-border mdl-shadow form-control p-3 bg-body rounded mt-3"
 		id="contact-email"
 		placeholder="ইমেইল"
 		required
 	/>
 	<input
 		type="text"
-		class="form-control shadow p-3 bg-body rounded mt-3"
+		class="mdl-border mdl-shadow form-control p-3 bg-body rounded mt-3"
 		id="contact-company-name"
 		placeholder="প্রতিষ্ঠানের নাম (ঐচ্ছ্বিক)"
 	/>
 	<input
 		type="tel"
-		class="form-control shadow p-3 bg-body rounded mt-3"
+		class="mdl-border mdl-shadow form-control p-3 bg-body rounded mt-3"
 		id="contact-mobile"
 		placeholder="ফোন নম্বর"
 		pattern="[0]{1}[1]{1}[0-9]{9}"
@@ -29,7 +29,7 @@
 	/>
 
 	<textarea
-		class="form-control mt-3"
+		class="mdl-border mdl-shadow form-control mt-3"
 		id="recipient-numbers"
 		rows="4"
 		placeholder="আপনার বার্তা লিখুন"

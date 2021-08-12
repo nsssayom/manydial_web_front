@@ -79,4 +79,8 @@ export default {
 		padding-top: 0px;
 	}
 }
+
+#features{
+	background-color: #1f202215;
+}
 </style>

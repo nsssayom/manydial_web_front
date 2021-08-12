@@ -28,7 +28,6 @@
 					alert alert-success
 					d-flex
 					align-items-center
-					shadow
 					rounded
 				"
 				role="alert"
@@ -66,10 +65,14 @@
 	</div>
 	<!-- OTP Sending failed errror ends -->
 
+	<!-- Time input number row starts -->
+	<date-time-input-row />
+	<!-- Time input number row ends -->
+
 	<!-- Voice input starts -->
 	<div class="row pt-3">
 		<div class="col-8">
-			<div class="card shadow bg-body rounded">
+			<div class="card bg-body rounded mdl-shadow">
 				<div class="card-body" ref="visualizer-card">
 					<div
 						class="row"
@@ -104,7 +107,6 @@
 					type="button"
 					class="
 						btn btn-outline-primary
-						shadow
 						py-3 py-xs-0
 						my-xs-0
 						dropdown-toggle
@@ -152,7 +154,7 @@
 			<audio
 				controls
 				:src="audioSource"
-				class="shadow p-3 bg-body rounded"
+				class="p-3 bg-body rounded"
 				controlsList="nodownload"
 			></audio>
 		</div>
@@ -164,7 +166,6 @@
 					type="button"
 					class="
 						btn btn-outline-success
-						shadow
 						py-3 py-xs-0
 						my-xs-0
 						dropdown-toggle
@@ -205,9 +206,7 @@
 	</div>
 	<!-- Audio player ends -->
 
-	<!-- Time input number row starts -->
-	<date-time-input-row />
-	<!-- Time input number row ends -->
+
 
 	<!-- Recipient number row starts-->
 	<recipient-number-row />

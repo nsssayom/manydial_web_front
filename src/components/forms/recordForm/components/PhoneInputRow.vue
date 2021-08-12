@@ -4,7 +4,7 @@
 			<!-- <OTPForm /> -->
 			<input
 				type="tel"
-				class="form-control shadow p-3 bg-body rounded"
+				class="mdl-border mdl-shadow form-control  p-3 bg-body rounded"
 				id="mobile"
 				placeholder="আপনার ফোন নম্বর"
 				pattern="[0]{1}[1]{1}[0-9]{9}"
@@ -15,7 +15,7 @@
 		</div>
 		<div class="col-4">
 			<button
-				class="form-control btn btn-block shadow py-3 py-xs-0 my-xs-0"
+				class="form-control btn btn-block  py-3 py-xs-0 my-xs-0"
 				:class="{
 					'btn-outline-primary': isPhoneNumberValid,
 					'btn-outline-info': !isPhoneNumberValid,

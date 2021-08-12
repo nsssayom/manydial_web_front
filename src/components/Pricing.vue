@@ -216,23 +216,62 @@ export default {
 }
 
 .wrapper-silver {
-	background: linear-gradient(#4285f4 30%, #4285f4 64%) no-repeat;
+	/* background: linear-gradient(#4285f4 30%, #4285f4 64%) no-repeat; */
+	background-color: #86868642;
+	transition: ease-in .3s;
+
 }
 
 .wrapper-gold {
-	background: linear-gradient(#4285f4 30%, #4285f4 64%) no-repeat;
+	/* background: linear-gradient(#4285f4 30%, #4285f4 64%) no-repeat; */
+	background-color: #86868642;
+	transition: ease-in .3s;
+
 }
 
 .wrapper-platinum {
-	background: linear-gradient(#4285f4 30%, #4285f4 64%) no-repeat;
+	/* background: linear-gradient(#4285f4 30%, #4285f4 64%) no-repeat; */
+	background-color: #86868642;
+	transition: ease-in .3s;
+
 }
 
 .wrapper-diamond {
-	background: linear-gradient(#4285f4 30%, #4285f4 64%) no-repeat;
+	/* background: linear-gradient(#4285f4 30%, #4285f4 64%) no-repeat; */
+	background-color: #86868642;
+	transition: ease-in .3s;
+
 }
+
+.wrapper-silver:hover {
+	/* background: linear-gradient(#4285f4 30%, #4285f4 64%) no-repeat; */
+	background-color: #0b5dd74f;
+	border: 2px;
+}
+
+.wrapper-gold:hover {
+	/* background: linear-gradient(#4285f4 30%, #4285f4 64%) no-repeat; */
+	background-color: #0b5dd77a;
+	border: 2px;
+}
+
+.wrapper-platinum:hover {
+	/* background: linear-gradient(#4285f4 30%, #4285f4 64%) no-repeat; */
+	background-color: #0b5dd7c2;
+	border: 2px;
+}
+
+.wrapper-diamond:hover {
+	/* background: linear-gradient(#4285f4 30%, #4285f4 64%) no-repeat; */
+	background-color: #0B5ED7;
+	border: 2px;
+}
+
+
+
 
 .pricing-wrapper {
 	padding: 4px;
-	border-radius: 4px;
+	border-radius: 5px;
 }
 </style>
