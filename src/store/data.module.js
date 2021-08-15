@@ -86,7 +86,7 @@ export const data = {
 
             const audioFile = await fetch(state.audio.audioUrl)
                 .then(response => response.blob())
-                .then(blob => new File([blob], 'recording.webm', { type: 'audio/webm' }));
+                .then(blob => new File([blob], 'recording.wav', { type: 'audio/wave;codecs=0' }));
 
             const slotsStr = JSON.stringify(state.slots);
             const recipientStr = state.recipients.toString()

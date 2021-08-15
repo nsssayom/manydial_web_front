@@ -180,7 +180,7 @@
 						<a
 							class="dropdown-item"
 							:href="audioSource"
-							download="voice.webm"
+							download="voice.wav"
 						>
 							<font-awesome-icon
 								:icon="['fas', 'download']"
@@ -318,7 +318,7 @@ export default {
 		audioUpload() {
 			var input = document.createElement("input");
 			input.type = "file";
-			input.accept = "audio/mp3, audio/wav, audio/webm";
+			input.accept = "audio/mp3, audio/wav";
 
 			input.onchange = (e) => {
 				var file = URL.createObjectURL(e.target.files[0]);

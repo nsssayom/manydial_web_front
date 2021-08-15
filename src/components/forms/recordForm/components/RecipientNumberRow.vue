@@ -103,7 +103,7 @@ export default {
 				return false;
 			}
 			return this.tokenizedNumbers.every((number) => {
-				return number.match("^(\\+88)?01[3-7]{1}[0-9]{8}$");
+				return number.match("^(\\+88)?01[3-9]{1}[0-9]{8}$");
 			});
 		},
 	},

@@ -12,5 +12,15 @@ module.exports = {
                 },
             },
         },
+    },
+    configureWebpack: {
+        module: {
+            rules: [
+                {
+                    test: /encoderWorker\.min\.js$/,
+                    use: [{ loader: 'file-loader' }]
+                }
+            ]
+        }
     }
 }
