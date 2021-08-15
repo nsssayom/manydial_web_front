@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div v-if="ready">
 		<av-media
 			type="frequ"
 			:media="getMedia"
@@ -15,10 +15,14 @@
 </template>
 
 <script>
+import { MediaRecorder, register } from "extendable-media-recorder";
+import { connect } from "extendable-media-recorder-wav-encoder";
+
 export default {
 	name: "AudioVisualizer",
 	data() {
 		return {
+			ready: false,
 			mtype: null,
 			media: null,
 			mediaRecorder: null,
@@ -61,7 +65,9 @@ export default {
 
 			device.then((media) => {
 				this.media = media;
-				this.mediaRecorder = new MediaRecorder(media);
+				this.mediaRecorder = new MediaRecorder(media, {
+					mimeType: "audio/wav",
+				});
 
 				// Start audio record
 				this.mediaRecorder.start();
@@ -81,9 +87,8 @@ export default {
 					clearInterval(this.interval);
 
 					const audioBlob = new Blob(audioChunks, {
-						type: "audio/webm; codecs=opus",
+						type: "audio/wav; codecs=0",
 					});
-
 					audioChunks = [];
 					this.audioUrl = URL.createObjectURL(audioBlob);
 					console.log("New Audio URL: ", this.audioUrl);
@@ -121,9 +126,11 @@ export default {
 			}
 		},
 	},
-	mounted() {
+	async mounted() {
 		this.audioChunks = [];
+		await register(await connect());
 		//console.log(this.recordState);
+		this.ready = true;
 	},
 };
 </script>
