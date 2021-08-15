@@ -24,12 +24,7 @@
 			</svg>
 
 			<div
-				class="
-					alert alert-success
-					d-flex
-					align-items-center
-					rounded
-				"
+				class="alert alert-success d-flex align-items-center rounded"
 				role="alert"
 			>
 				<svg
@@ -206,8 +201,6 @@
 	</div>
 	<!-- Audio player ends -->
 
-
-
 	<!-- Recipient number row starts-->
 	<recipient-number-row />
 	<!-- Recipient number row finished -->
@@ -256,7 +249,6 @@ export default {
 		},
 
 		formClear: function () {
-			console.log("REC", this.recipientValid);
 			if (
 				this.recordState === "record_success" &&
 				this.otpStatus === "verify_success" &&
@@ -318,7 +310,7 @@ export default {
 		audioUpload() {
 			var input = document.createElement("input");
 			input.type = "file";
-			input.accept = "audio/mp3, audio/wav, audio/webm";
+			input.accept = "audio/mp3, audio/wav";
 
 			input.onchange = (e) => {
 				var file = URL.createObjectURL(e.target.files[0]);
