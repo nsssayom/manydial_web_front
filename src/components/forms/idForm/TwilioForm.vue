@@ -153,7 +153,7 @@
 				</div>
 				<!-- Order placed ends -->
 
-				<div class="d-flex justify-content-between">
+				<div class="d-flex justify-content-between" v-if="!orderId">
 					<button
 						type="button"
 						class="btn btn-primary"
@@ -163,12 +163,24 @@
 					</button>
 
 					<button
+						v-if="!orderId"
 						type="button"
 						class="btn btn-primary"
 						:disabled="!formClear"
 						@click="onNextBtn"
 					>
 						কল করুন
+					</button>
+				</div>
+
+				<div class="d-flex flex-row-reverse" v-if="orderId">
+					<button
+						type="button"
+						class="btn btn-primary"
+						:disabled="!formClear"
+						@click="onNewCall"
+					>
+						নতুন কল
 					</button>
 				</div>
 			</div>
@@ -293,6 +305,10 @@ export default {
 		onNextBtn() {
 			// this.$store.dispatch("data/setCurrentForm", "invoice");
 			this.$store.dispatch("data/placeOrder");
+		},
+
+		onNewCall() {
+			location.reload();
 		},
 	},
 

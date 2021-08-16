@@ -11,7 +11,7 @@ class OrderService {
         formData.append("recipients", recipients);
         formData.append("slots", slots);
 
-        return axios.post('api/orders',
+        return axios.post(process.env.VUE_APP_API_BASE_URL + '/orders',
             formData,
             header);
     }
