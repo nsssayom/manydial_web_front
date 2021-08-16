@@ -114,13 +114,15 @@ export const data = {
 
         updateRecordState (state, recordState) {
             state.audio.recordState = recordState;
-            //state.audio.audioDuration = audioUrl.duration;
         },
 
         updateAudioUrl (state, audioUrl) {
             state.audio.audioUrl = audioUrl;
-            // TODO: Calculate audio duration
-            //state.audio.audioDuration = audioUrl.duration;
+            new Audio(audioUrl).addEventListener('loadedmetadata', function () {
+                if (this.duration &&
+                    this.duration !== Infinity)
+                    state.audio.audioDuration = Math.ceil(this.duration);
+            });
         },
 
         updateAudioDuration (state) {

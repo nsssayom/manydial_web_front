@@ -24,12 +24,7 @@
 			</svg>
 
 			<div
-				class="
-					alert alert-success
-					d-flex
-					align-items-center
-					rounded
-				"
+				class="alert alert-success d-flex align-items-center rounded"
 				role="alert"
 			>
 				<svg
@@ -206,8 +201,6 @@
 	</div>
 	<!-- Audio player ends -->
 
-
-
 	<!-- Recipient number row starts-->
 	<recipient-number-row />
 	<!-- Recipient number row finished -->
@@ -256,7 +249,6 @@ export default {
 		},
 
 		formClear: function () {
-			console.log("REC", this.recipientValid);
 			if (
 				this.recordState === "record_success" &&
 				this.otpStatus === "verify_success" &&

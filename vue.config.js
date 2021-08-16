@@ -3,7 +3,7 @@ module.exports = {
     devServer: {
         proxy: {
             '/api/*': {
-                target: 'http://localhost:3000',
+                target: 'https://api.manydial.com',
                 changeOrigin: true,
                 logLevel: "debug",
                 secure: true,
