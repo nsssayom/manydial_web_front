@@ -27,22 +27,22 @@
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 					<li class="nav-item active">
-						<a class="nav-link" href="#">কল করুন</a>
+						<a class="nav-link" href="#">Call Now</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#features">কীভাবে কল করব?</a>
+						<a class="nav-link" href="#features">Features</a>
 					</li>
 					<!-- <li class="nav-item">
-						<a class="nav-link" href="#capacity">সক্ষমতা</a>
+						<a class="nav-link" href="#capacity">Capacity</a>
 					</li> -->
 					<li class="nav-item">
-						<a class="nav-link" href="#pricing">মুল্য</a>
+						<a class="nav-link" href="#pricing">Pricing</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#faq">প্রশ্ন</a>
+						<a class="nav-link" href="#faq">FAQ</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#contact-us">যোগাযোগ করুন</a>
+						<a class="nav-link" href="#contact-us">Feedback</a>
 					</li>
 				</ul>
 
@@ -60,7 +60,7 @@
 					class="btn btn-outline-primary disabled"
 					id="balance-button"
 				>
-					{{ " ব্যালান্স:  " + " ৳" + balance }}
+					{{ " Balance:  " + " $" + balance }}
 				</div>
 			</div>
 		</div>
@@ -79,9 +79,7 @@ export default {
 		balance: function () {
 			if (this.$store.state.auth.user.dbUser) {
 				return this.$store.state.auth.user.dbUser.balance;
-			}
-            else 
-            return 0;
+			} else return 0;
 		},
 		phoneNumber: function () {
 			return this.$store.state.auth.user.phoneNumber;

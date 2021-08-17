@@ -109,7 +109,7 @@
 					data-bs-toggle="dropdown"
 					aria-expanded="false"
 				>
-					আপলোড
+					Record
 				</button>
 				<ul class="dropdown-menu">
 					<li>
@@ -117,7 +117,7 @@
 							><font-awesome-icon
 								:icon="['fas', 'upload']"
 								:style="{ color: '0288D1' }"
-							/><span> ফাইল আপলোড </span></a
+							/><span> Upload File </span></a
 						>
 					</li>
 				</ul>
@@ -168,7 +168,7 @@
 					data-bs-toggle="dropdown"
 					aria-expanded="false"
 				>
-					ডাউনলোড
+					Play
 				</button>
 				<ul class="dropdown-menu">
 					<li>
@@ -181,7 +181,7 @@
 								:icon="['fas', 'download']"
 								:style="{ color: '388E3C' }"
 							/>
-							<span> ডাউনলোড করুন </span>
+							<span> Download Audio </span>
 						</a>
 					</li>
 					<li>
@@ -192,7 +192,7 @@
 							><font-awesome-icon
 								:icon="['fas', 'times-circle']"
 								:style="{ color: 'D32F2F' }"
-							/><span> বাতিল করুন </span></a
+							/><span> Cancel </span></a
 						>
 					</li>
 				</ul>
@@ -212,7 +212,7 @@
 			:disabled="!formClear"
 			@click="submitRecordForm"
 		>
-			পরবর্তী
+			Next
 		</button>
 	</div>
 </template>

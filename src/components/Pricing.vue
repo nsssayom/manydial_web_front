@@ -2,10 +2,13 @@
 	<div class="container text-center">
 		<div class="row d-flex justify-content-center">
 			<div class="col-md-8">
-				<h3>১ টাকায় কল করুন</h3>
+				<h3>
+					Pricing strats from
+					<span class="text-success"> $0.016/min </span>
+				</h3>
 				<p class="mb-5">
-					মেনিডায়ালে সর্বনিম্ন এক টাকা প্রতি মিনিট ভয়েস কল ব্রডকাস্ট
-					করতে পারবেন, এক ক্লিকেই...
+					You can compare Manydial to your local operator. In terms of
+					feature offering, we will win the game by 10-1 😀
 				</p>
 			</div>
 		</div>
@@ -15,8 +18,8 @@
 				<div class="pricing-wrapper wrapper-silver">
 					<div class="pricing-container text-center">
 						<div class="pricing-header">
-							<h3>সিলভার</h3>
-							<p>১-১০০ নাম্বারে কল ব্রডকাস্ট করার জন্য</p>
+							<h3>Silver</h3>
+							<p>Broadcast calls to 1-100 numbers</p>
 						</div>
 						<div class="pricing-body">
 							<ul>
@@ -26,7 +29,7 @@
 											:icon="['fas', 'check']"
 											:style="{ color: '#407BFF' }"
 									/></span>
-									নিজস্ব অডিও
+									Own Audio
 								</li>
 								<li>
 									<span>
@@ -34,7 +37,7 @@
 											:icon="['fas', 'check']"
 											:style="{ color: '#407BFF' }"
 									/></span>
-									স্বাভাবিক অ্যাপ্রুভাল টাইম
+									Normal Approval Time
 								</li>
 								<li>
 									<span>
@@ -42,12 +45,14 @@
 											:icon="['fas', 'check']"
 											:style="{ color: '#407BFF' }"
 									/></span>
-									কল রিপোর্ট
+									Delivery Report
 								</li>
 							</ul>
 						</div>
 						<div class="pricing-footer">
-							<h3>৳৩.০০/মিনিট</h3>
+							<h3>$0.023/min</h3>
+							<!-- TODO: Fetch the price from the server and display
+							it here -->
 							<!-- <small>Monthly Payment</small> -->
 						</div>
 					</div>
@@ -58,8 +63,8 @@
 				<div class="pricing-wrapper wrapper-gold">
 					<div class="pricing-container">
 						<div class="pricing-header text-center">
-							<h3>গোল্ড</h3>
-							<p>১০০ থেকে ১০০০ নাম্বারে ব্রডকাস্ট করার জন্য</p>
+							<h3>Gold</h3>
+							<p>Broadcast calls to 100-1000 numbers</p>
 						</div>
 						<div class="pricing-body">
 							<ul>
@@ -69,7 +74,7 @@
 											:icon="['fas', 'check']"
 											:style="{ color: '#407BFF' }"
 									/></span>
-									নিজস্ব অডিও
+									Own Audio
 								</li>
 								<li>
 									<span>
@@ -77,7 +82,7 @@
 											:icon="['fas', 'check']"
 											:style="{ color: '#407BFF' }"
 									/></span>
-									দ্রুততম অ্যাপ্রুভাল টাইম
+									Fastest Approval Time
 								</li>
 								<li>
 									<span>
@@ -85,12 +90,12 @@
 											:icon="['fas', 'check']"
 											:style="{ color: '#407BFF' }"
 									/></span>
-									কল রিপোর্ট
+									Delivery Report
 								</li>
 							</ul>
 						</div>
 						<div class="pricing-footer">
-							<h3>৳২.০০/মিনিট</h3>
+							<h3>$0.019/min</h3>
 							<!-- <small>Monthly Payment</small> -->
 						</div>
 					</div>
@@ -101,8 +106,8 @@
 				<div class="pricing-wrapper wrapper-platinum">
 					<div class="pricing-container">
 						<div class="pricing-header text-center">
-							<h3>প্ল্যাটিনাম</h3>
-							<p>১০০০ থেকে ১০০০০ নাম্বারে ব্রডকাস্ট করার জন্য</p>
+							<h3>Platinum</h3>
+							<p>Broadcast calls to 1000-10000 numbers</p>
 						</div>
 						<div class="pricing-body">
 							<ul>
@@ -112,7 +117,7 @@
 											:icon="['fas', 'check']"
 											:style="{ color: '#407BFF' }"
 									/></span>
-									নিজস্ব অডিও
+									Own Audio
 								</li>
 								<li>
 									<span>
@@ -120,7 +125,7 @@
 											:icon="['fas', 'check']"
 											:style="{ color: '#407BFF' }"
 									/></span>
-									দ্রুততম অ্যাপ্রুভাল টাইম
+									Fastest Approval Time
 								</li>
 								<li>
 									<span>
@@ -128,12 +133,12 @@
 											:icon="['fas', 'check']"
 											:style="{ color: '#407BFF' }"
 									/></span>
-									কল রিপোর্ট
+									Delivery Report
 								</li>
 							</ul>
 						</div>
 						<div class="pricing-footer">
-							<h3>৳১.০০/মিনিট</h3>
+							<h3>$0.016/min</h3>
 							<!-- <small>Monthly Payment</small> -->
 						</div>
 					</div>
@@ -144,8 +149,8 @@
 				<div class="pricing-wrapper wrapper-diamond">
 					<div class="pricing-container">
 						<div class="pricing-header text-center">
-							<h3>ডায়ামন্ড</h3>
-							<p>১০০০০ এর বেশি নাম্বারে ব্রডকাস্ট করার জন্য</p>
+							<h3>Diamond</h3>
+							<p>Broadcast calls to 10000+ numbers</p>
 						</div>
 						<div class="pricing-body">
 							<ul>
@@ -155,7 +160,7 @@
 											:icon="['fas', 'check']"
 											:style="{ color: '#407BFF' }"
 									/></span>
-									নিজস্ব অডিও
+									Own Audio
 								</li>
 								<li>
 									<span>
@@ -163,7 +168,7 @@
 											:icon="['fas', 'check']"
 											:style="{ color: '#407BFF' }"
 									/></span>
-									দ্রুততম অ্যাপ্রুভাল টাইম
+									Fastest Approval Time
 								</li>
 								<li>
 									<span>
@@ -171,7 +176,7 @@
 											:icon="['fas', 'check']"
 											:style="{ color: '#407BFF' }"
 									/></span>
-									কাস্টোমাইজ আইভিয়ার
+									Delivery Report
 								</li>
 								<li>
 									<span>
@@ -179,7 +184,7 @@
 											:icon="['fas', 'check']"
 											:style="{ color: '#407BFF' }"
 									/></span>
-									কল রিপোর্ট
+									Customized IVR
 								</li>
 							</ul>
 						</div>
@@ -187,7 +192,7 @@
 							<a
 								href="#contact-us"
 								class="btn btn-primary full-width"
-								>কলরেট জানতে যোগাযোগ করুন</a
+								>Contat Us for Price</a
 							>
 							<!-- <small>Monthly Payment</small> -->
 						</div>
@@ -218,29 +223,25 @@ export default {
 .wrapper-silver {
 	/* background: linear-gradient(#4285f4 30%, #4285f4 64%) no-repeat; */
 	background-color: #86868642;
-	transition: ease-in .3s;
-
+	transition: ease-in 0.3s;
 }
 
 .wrapper-gold {
 	/* background: linear-gradient(#4285f4 30%, #4285f4 64%) no-repeat; */
 	background-color: #86868642;
-	transition: ease-in .3s;
-
+	transition: ease-in 0.3s;
 }
 
 .wrapper-platinum {
 	/* background: linear-gradient(#4285f4 30%, #4285f4 64%) no-repeat; */
 	background-color: #86868642;
-	transition: ease-in .3s;
-
+	transition: ease-in 0.3s;
 }
 
 .wrapper-diamond {
 	/* background: linear-gradient(#4285f4 30%, #4285f4 64%) no-repeat; */
 	background-color: #86868642;
-	transition: ease-in .3s;
-
+	transition: ease-in 0.3s;
 }
 
 .wrapper-silver:hover {
@@ -263,12 +264,9 @@ export default {
 
 .wrapper-diamond:hover {
 	/* background: linear-gradient(#4285f4 30%, #4285f4 64%) no-repeat; */
-	background-color: #0B5ED7;
+	background-color: #0b5ed7;
 	border: 2px;
 }
-
-
-
 
 .pricing-wrapper {
 	padding: 4px;

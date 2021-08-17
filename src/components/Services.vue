@@ -2,9 +2,8 @@
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-lg-4">
-				<div class="box card mdl-shadow py-3 px-4 ">
+				<div class="box card mdl-shadow py-3 px-4">
 					<header class="box-header">
-						
 						<div class="right">
 							<div class="icon-bg">
 								<img
@@ -14,17 +13,20 @@
 							</div>
 						</div>
 						<div class="left">
-							<h5 class="heading">এক ক্লিকেই হাজার কল</h5>
+							<h5 class="heading">
+								Thousands of calls in a click
+							</h5>
 							<p>
-								সবচেয়ে সহজে, সবচেয়ে কম খরচে, <br />
-								সবার কাছে কল করুন একই সময়ে
+								We support the highest numbers of concurrent
+								calls & ensure a seamless broadcasting
+								experience.
 							</p>
 						</div>
 					</header>
 				</div>
 			</div>
 			<div class="col-lg-4">
-				<div class="box card mdl-shadow py-3 px-4 ">
+				<div class="box card mdl-shadow py-3 px-4">
 					<header class="box-header">
 						<div class="right">
 							<div class="icon-bg">
@@ -35,17 +37,19 @@
 							</div>
 						</div>
 						<div class="left">
-							<h5 class="heading">দেশের যে কোনো প্রান্তে</h5>
+							<h5 class="heading">
+								Most of the countries in the world
+							</h5>
 							<p>
-								মেনিডায়াল থেকে কল করুন দেশের <br />
-								যে কোনো মোবাইল নাম্বারে
+								We support voice call broadcasting to most of
+								the countries in the world in just a few minute
 							</p>
 						</div>
 					</header>
 				</div>
 			</div>
 			<div class="col-lg-4">
-				<div class="box card mdl-shadow py-3 px-4 ">
+				<div class="box card mdl-shadow py-3 px-4">
 					<header class="box-header">
 						<div class="right">
 							<div class="icon-bg">
@@ -56,10 +60,14 @@
 							</div>
 						</div>
 						<div class="left">
-							<h5 class="heading">সহজ এবং নিরাপদ</h5>
+							<h5 class="heading">
+								Easiest, cheapest <br />
+								& the fastest
+							</h5>
 							<p>
-								প্রতিটি সেন্ডারকেই জাতীয় পরিচয় <br />
-								পত্র ভেরিফাই করেই কল দিতে হয়।
+								Manydial offers the cheapest service with the
+								most easiest flow ensuring your security
+								privacy.
 							</p>
 						</div>
 					</header>

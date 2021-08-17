@@ -14,8 +14,8 @@
 						>
 							{{
 								dateSelected
-									? dateSelected.toLocaleString("bn-BD")
-									: "কল শুরুর তারিখ ও সময় সিলেক্ট করুন"
+									? dateSelected.toLocaleString("en-US")
+									: "Select the Date and Time to Initiate Call"
 							}}
 						</button>
 					</h2>

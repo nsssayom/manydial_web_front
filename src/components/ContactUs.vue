@@ -2,11 +2,12 @@
 	<div class="container">
 		<div class="row d-flex justify-content-center text-center">
 			<div class="col-md-8">
-				<h3>যোগাযোগ করুন</h3>
+				<h3>Feedback Matters</h3>
 				<p class="mb-5">
-					মেনিডায়াল নিয়ে কোনো জিজ্ঞাসা আছে? কিংবা কাস্টোমাইজড কোনো কল
-					ব্রডকাস্টিং সহায়তা দরকার? এখনই পাঠিয়ে দিন আপনার
-					রিকোয়ের্মেন্ট, দ্রুততম সময়ে আমরা যোগাযোগ করবো।
+					As you know, we are in the beta phase and testing our market
+					opportunity to develop some coolest voice broadcasting
+					solutions. In this phase, we value feedback
+					<b>more than our girlfriends</b>.
 				</p>
 			</div>
 		</div>

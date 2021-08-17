@@ -14,15 +14,13 @@
 					</ul>
 				</div>
 				<div class="col-md-4 text-center">
-					<small
-						>A concern by
+					<small>
 						<a
 							href="https://reelboard.co"
 							target="_blank"
 							rel="noopener"
-							>Reelboard</a
-						></small
-					>
+						></a
+					></small>
 				</div>
 				<div class="col-md-4">
 					<ul class="list-inline tright">

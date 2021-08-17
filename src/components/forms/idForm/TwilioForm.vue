@@ -10,7 +10,7 @@
 				>
 					<div class="col-12">
 						<div class="alert alert-success" role="alert">
-							আপনার নম্বরটি কল ব্রডকাস্টের জন্য ভেরিফাই করা হয়েছে
+							Your number has been verified.
 						</div>
 					</div>
 				</div>
@@ -20,9 +20,9 @@
 				<div class="row pt-3" v-show="verificationStatus === 'sent'">
 					<div class="col-12">
 						<div class="alert alert-info" role="alert">
-							আপনার ফোনে কিছুক্ষণের মধ্যে একটি কল যাবে। কলটি রিসিভ
-							করে <b> {{ verificationCode }} </b> কোডটি প্রবেশ
-							করান
+							You will get a call shortly. Please recieve the call
+							and enter
+							<b> {{ verificationCode }} </b> when asked.
 						</div>
 					</div>
 				</div>
@@ -35,7 +35,7 @@
 				>
 					<div class="col-12">
 						<div class="alert alert-danger" role="alert">
-							আপনার নম্বরটি ভেরিফাই করা যায়নি
+							Your number could not be verified. Please try again.
 						</div>
 					</div>
 				</div>
@@ -45,7 +45,7 @@
 				<div class="row pt-3" v-if="callEndTime">
 					<div class="col-12">
 						<div class="alert alert-info" role="alert">
-							আপনার কলগুলো সম্পন্ন হবার সম্ভাব্য সময়
+							Your calls will be completed within
 							<b> {{ callEndTime }} </b>
 						</div>
 					</div>
@@ -57,70 +57,70 @@
 					<div class="col-12">
 						<div class="alert alert-info" role="alert">
 							<div class="d-flex justify-content-between">
-								<span> কলের সংখ্যা: </span>
+								<span> Number of Calls: </span>
 								<span>
 									<b>
 										{{
 											recipientCount.toLocaleString(
-												"bn-BD"
+												"en-US"
 											)
 										}}
-										টি
 									</b>
 								</span>
 							</div>
 
 							<div class="d-flex justify-content-between">
-								<span> কল রেট প্ল্যান: </span>
+								<span> Call Rate Package: </span>
 								<span>
 									<b> {{ callTier }}</b>
 								</span>
 							</div>
 
 							<div class="d-flex justify-content-between">
-								<span> অডিও ডিউরেশন (১ মিনিট পালস): </span>
+								<span> Audio Duration (1 min pulse): </span>
 								<span>
 									<b>
 										{{
 											audioDuration.toLocaleString(
-												"bn-BD"
+												"en-US"
 											)
 										}}
-										মিনিট
+										mins
 									</b>
 								</span>
 							</div>
 
 							<div class="d-flex justify-content-between">
-								<span> মোট সময়: </span>
+								<span> Total Time: </span>
 								<span>
 									<b>
 										{{
 											totalCallMinutes.toLocaleString(
-												"bn-BD"
+												"en-US"
 											)
 										}}
-										মিনিট
+										mins
 									</b>
 								</span>
 							</div>
 
 							<div class="d-flex justify-content-between">
-								<span> কল রেট (প্রতি মিনিট) : </span>
+								<span> Call Rate (per min) : </span>
 								<span>
+									$
 									<b>
-										{{ callRate.toLocaleString("bn-BD") }} ৳
+										{{ callRate.toLocaleString("en-US") }}
 									</b>
 								</span>
 							</div>
 							<hr />
 
 							<div class="d-flex justify-content-between">
-								<span> মোট মূল্য : </span>
+								<span> Total Cost : </span>
 								<span>
+									$
 									<b>
-										{{ totalCost.toLocaleString("bn-BD") }}
-										৳
+										{{ totalCost.toLocaleString("en-US") }}
 									</b>
 								</span>
 							</div>
@@ -133,10 +133,8 @@
 				<div class="row pt-3" v-show="lowBalance">
 					<div class="col-12">
 						<div class="alert alert-danger" role="alert">
-							আপনার বর্তমান ব্যালান্স কলের মোট মূল্য-কে অতিক্রম
-							করে। পূর্ববর্তী পাতায় গিয়ে প্রাপকের সংখ্যা কমিয়ে নিন
-							অথবা, অতিরিক্ত ব্যালান্সের জন্য আমাদের সাথে
-							<a href="#contact-us">যোগাযোগ করুন </a>।
+							Not enough credit to complete your call.
+							<a href="#contact-us">Contact us. </a>।
 						</div>
 					</div>
 				</div>
@@ -146,7 +144,8 @@
 				<div class="row pt-3" v-show="orderId">
 					<div class="col-12">
 						<div class="alert alert-success" role="alert">
-							আপনার অর্ডার আইডি
+							Your order has been placed and is being processed.
+							Your can check the status of your order
 							<a href="#">{{ orderId }} </a>।
 						</div>
 					</div>
@@ -159,7 +158,7 @@
 						class="btn btn-primary"
 						@click="onPrevBtn"
 					>
-						পূর্ববর্তী
+						Previous
 					</button>
 
 					<button
@@ -169,7 +168,7 @@
 						:disabled="!formClear"
 						@click="onNextBtn"
 					>
-						কল করুন
+						Place Order
 					</button>
 				</div>
 
@@ -180,7 +179,7 @@
 						:disabled="!formClear"
 						@click="onNewCall"
 					>
-						নতুন কল
+						Place Another Order
 					</button>
 				</div>
 			</div>
@@ -284,7 +283,7 @@ export default {
 				//return this.$store.state.data.slots;
 				return new Date(
 					this.$store.state.data.slots.slice(-1)[0].end_time
-				).toLocaleString("bn-BD", options);
+				).toLocaleString("en-US", options);
 			} else {
 				return null;
 			}

@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/earlyaccess/notosansbengali.css");
+/* @import url("https://fonts.googleapis.com/earlyaccess/notosansbengali.css");
 
 * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
+ */
 html,
 body {
     /* font-family: 'Noto Sans Bengali', sans-serif !important; */
@@ -208,7 +208,7 @@ Navbar
     -webkit-flex-shrink: 0;
     flex-shrink: 0;
     margin-left: 15px;
-    
+
 }
 
 /* .icon-bg {
@@ -442,32 +442,33 @@ Contact
     box-shadow: none;
 } */
 
-.mdl-border{
+.mdl-border {
     border: 1px solid rgba(202, 210, 214, 0.33) !important;
 }
-.mdl-border:focus{
+
+.mdl-border:focus {
     border: 1px solid #0080ff71 !important;
 }
 
-.mdl-shadow{
+.mdl-shadow {
     box-shadow: 0px 3px 6px #00000018 !important;
 }
 
-.mdl-shadow:focus{
+.mdl-shadow:focus {
     box-shadow: 0px 0px 0px !important;
 }
 
-.accordion-button:focus{
+.accordion-button:focus {
     box-shadow: 0px 0px 0px !important;
 }
 
-.mdl-section{
+.mdl-section {
     padding-top: 20px !important;
     padding-bottom: 20px !important;
 }
 
 
-#features > div{
+#features>div {
     padding-left: 0;
     padding-right: 0;
 }

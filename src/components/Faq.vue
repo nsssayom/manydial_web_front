@@ -2,12 +2,10 @@
 	<div class="container">
 		<div class="row d-flex justify-content-center text-center">
 			<div class="col-md-8">
-				<h3>সাধারণ প্রশ্ন</h3>
+				<h3>FAQ</h3>
 				<p class="mb-5">
-					অংশ অংশভাক আঁইশ ইঁচড়েপাকা ঈক্ষণ ঈদৃক অংশভাগী জওয়ান অংশাঙ্কিত
-					ইউক্যালিপটাস অংশাবতার হালহদিশ পিতৃতর্পণ টকানো ঈক্ষিত জগজ্জন
-					তকতনামা আঁকুবাঁকু পঁইছা জগঝপ্প পঁহুছা দ্রাবিড়ী আঁকুড়ি ঈদৃক
-					জগদ
+					These three fundamental questions have come to your mind,
+					and we have left the answers here.
 				</p>
 			</div>
 		</div>
@@ -23,7 +21,8 @@
 						aria-expanded="false"
 						aria-controls="flush-collapseOne"
 					>
-						প্রথম প্রশ্ন
+						When will I be able to broadcast commercial voice calls
+						from the Manydial website?
 					</button>
 				</h2>
 				<div
@@ -33,15 +32,12 @@
 					data-bs-parent="#accordionFlushExample"
 				>
 					<div class="accordion-body">
-						অংশ অংশভাক আঁইশ ইঁচড়েপাকা ঈক্ষণ ঈদৃক অংশভাগী জওয়ান
-						অংশাঙ্কিত ইউক্যালিপটাস অংশাবতার হালহদিশ পিতৃতর্পণ টকানো
-						ঈক্ষিত জগজ্জন তকতনামা আঁকুবাঁকু পঁইছা জগঝপ্প পঁহুছা
-						দ্রাবিড়ী আঁকুড়ি ঈদৃক জগদম্বা টঙ্ক অংশিন্‌ জগদ্গৌরী আঁচা
-						তকরার তিলপিটালি গজ-দাঁত অংশু ঈপ্সনীয় পইতা শংকরাভরণ
-						হংসগমন পকড় অংশুধর ঈপ্সু ঈর্ষী জগদ্ধাত্রী আঁজনাই তক্তি
-						শংসনপত্র হংসারূঢ়া দংশল তক্ষক অংশুমান ইকেবানা জগদ্বন্ধু
-						ঈশিত্ব ইক্ষ্বাকু আঁজি অংসকুট টঙ্কক তক্ষণাস্ত্র পকোড়া
-						দংষ্ট্রা শকটিকা হকচকা বঁইচি শকল
+						Too sooon! Manydial is now in a beta testing phase. At
+						this phase, we will collect essential user feedback and
+						find out what kind of services you guys want to use.
+						Then we will launch a brand-new commercial website with
+						more exciting voice call broadcasting features. But all
+						of these will be codeless.
 					</div>
 				</div>
 			</div>
@@ -55,7 +51,7 @@
 						aria-expanded="false"
 						aria-controls="flush-collapseTwo"
 					>
-						দ্বিতীয় প্রশ্ন
+						Why would somebody use Manydial?
 					</button>
 				</h2>
 				<div
@@ -65,15 +61,13 @@
 					data-bs-parent="#accordionFlushExample"
 				>
 					<div class="accordion-body">
-						অংশ অংশভাক আঁইশ ইঁচড়েপাকা ঈক্ষণ ঈদৃক অংশভাগী জওয়ান
-						অংশাঙ্কিত ইউক্যালিপটাস অংশাবতার হালহদিশ পিতৃতর্পণ টকানো
-						ঈক্ষিত জগজ্জন তকতনামা আঁকুবাঁকু পঁইছা জগঝপ্প পঁহুছা
-						দ্রাবিড়ী আঁকুড়ি ঈদৃক জগদম্বা টঙ্ক অংশিন্‌ জগদ্গৌরী আঁচা
-						তকরার তিলপিটালি গজ-দাঁত অংশু ঈপ্সনীয় পইতা শংকরাভরণ
-						হংসগমন পকড় অংশুধর ঈপ্সু ঈর্ষী জগদ্ধাত্রী আঁজনাই তক্তি
-						শংসনপত্র হংসারূঢ়া দংশল তক্ষক অংশুমান ইকেবানা জগদ্বন্ধু
-						ঈশিত্ব ইক্ষ্বাকু আঁজি অংসকুট টঙ্কক তক্ষণাস্ত্র পকোড়া
-						দংষ্ট্রা শকটিকা হকচকা বঁইচি শকল
+						Good question! We know you can find hundreds of websites
+						out there to broadcast voice calls, but we also know
+						none of them are seamless. You can not initiate your
+						first broadcast in under 20 minutes. This is the problem
+						we are here to solve. Manydial is a click-and-call voice
+						call broadcasting solution that doesn't require any
+						coding knowledge.
 					</div>
 				</div>
 			</div>
@@ -87,7 +81,7 @@
 						aria-expanded="false"
 						aria-controls="flush-collapseThree"
 					>
-						তৃতীয় প্রশ্ন
+						Can we make calls from all the countries in the world?
 					</button>
 				</h2>
 				<div
@@ -97,15 +91,11 @@
 					data-bs-parent="#accordionFlushExample"
 				>
 					<div class="accordion-body">
-						অংশ অংশভাক আঁইশ ইঁচড়েপাকা ঈক্ষণ ঈদৃক অংশভাগী জওয়ান
-						অংশাঙ্কিত ইউক্যালিপটাস অংশাবতার হালহদিশ পিতৃতর্পণ টকানো
-						ঈক্ষিত জগজ্জন তকতনামা আঁকুবাঁকু পঁইছা জগঝপ্প পঁহুছা
-						দ্রাবিড়ী আঁকুড়ি ঈদৃক জগদম্বা টঙ্ক অংশিন্‌ জগদ্গৌরী আঁচা
-						তকরার তিলপিটালি গজ-দাঁত অংশু ঈপ্সনীয় পইতা শংকরাভরণ
-						হংসগমন পকড় অংশুধর ঈপ্সু ঈর্ষী জগদ্ধাত্রী আঁজনাই তক্তি
-						শংসনপত্র হংসারূঢ়া দংশল তক্ষক অংশুমান ইকেবানা জগদ্বন্ধু
-						ঈশিত্ব ইক্ষ্বাকু আঁজি অংসকুট টঙ্কক তক্ষণাস্ত্র পকোড়া
-						দংষ্ট্রা শকটিকা হকচকা বঁইচি শকল
+						The answer is initially, YES! You can make calls from
+						all the countries. But you may find some regulatory
+						issues with some of them. We would suggest you try our
+						service with free credit. If everything works fine, then
+						why not have us commercially?
 					</div>
 				</div>
 			</div>

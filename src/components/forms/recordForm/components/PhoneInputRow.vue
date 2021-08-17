@@ -4,9 +4,9 @@
 			<!-- <OTPForm /> -->
 			<input
 				type="tel"
-				class="mdl-border mdl-shadow form-control  p-3 bg-body rounded"
+				class="mdl-border mdl-shadow form-control p-3 bg-body rounded"
 				id="mobile"
-				placeholder="আপনার ফোন নম্বর"
+				placeholder="Sender's Number "
 				pattern="[0]{1}[1]{1}[0-9]{9}"
 				maxlength="11"
 				required
@@ -15,7 +15,7 @@
 		</div>
 		<div class="col-4">
 			<button
-				class="form-control btn btn-block  py-3 py-xs-0 my-xs-0"
+				class="form-control btn btn-block py-3 py-xs-0 my-xs-0"
 				:class="{
 					'btn-outline-primary': isPhoneNumberValid,
 					'btn-outline-info': !isPhoneNumberValid,
@@ -24,7 +24,7 @@
 				id="btn-get-otp"
 				:disabled="!isPhoneNumberValid"
 			>
-				<div v-show="!otpSubmitted">ওটিপি পাঠান</div>
+				<div v-show="!otpSubmitted">Get OTP</div>
 				<font-awesome-icon
 					v-show="otpSubmitted"
 					icon="spinner"

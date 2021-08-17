@@ -10,9 +10,9 @@
 				type="number"
 				id="recipient-numbers"
 				rows="3"
-				placeholder="প্রাপকদের নম্বর লিখুন বা, আপলোড করুন 
-01701112233 
-01610203040"
+				placeholder="Enter or Upload Recipient numbers. eg.
++15417543010
++447911123456"
 				v-model="recipientNumber"
 			></textarea>
 		</div>
@@ -31,23 +31,23 @@
 					data-bs-toggle="dropdown"
 					aria-expanded="false"
 				>
-					ইনপুট
+					Input
 				</button>
 				<ul class="dropdown-menu">
-					<li>
+					<!-- <li>
 						<a class="dropdown-item" href="#"
 							><font-awesome-icon
 								:icon="['fas', 'keyboard']"
 								:style="{ color: '616161' }"
-							/><span> নম্বর লিখুন</span></a
+							/><span> Enter Numbers</span></a
 						>
-					</li>
+					</li> -->
 					<li>
 						<a class="dropdown-item" href="#"
 							><font-awesome-icon
 								:icon="['fas', 'download']"
 								:style="{ color: '388E3C' }"
-							/><span> ডাউনলোড করুন </span></a
+							/><span> Download Numbers </span></a
 						>
 					</li>
 					<li>
@@ -58,7 +58,7 @@
 							><font-awesome-icon
 								:icon="['fas', 'upload']"
 								:style="{ color: '0288D1' }"
-							/><span> নম্বর আপলোড করুন</span></a
+							/><span> Upload Numbers</span></a
 						>
 					</li>
 				</ul>
@@ -69,9 +69,9 @@
 	<div class="row pt-3">
 		<div class="col-8">
 			<p id="disclaimer-text">
-				* অংশ অংশভাক আঁইশ ইঁচড়েপাকা ঈক্ষণ ঈদৃক অংশভাগী জওয়ান অংশাঙ্কিত
-				ইউক্যালিপটাস অংশাবতার হালহদিশ পিতৃতর্পণ টকানো ঈক্ষিত জগজ্জন
-				তকতনামা আঁকুবাঁকু
+				* To upload numbers, make sure the numbers are in a single
+				column with the country code. Currently we only support
+				excel/csv or txt files.
 			</p>
 		</div>
 	</div>
