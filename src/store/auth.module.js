@@ -9,6 +9,11 @@ export const auth = {
                 phoneNumber: null,
                 dbUser: null,
                 firebaseUserContext: null,
+                country: null,
+                countryCode: null,
+                countryFlag: null,
+                countryFlagEmoji: null,
+                timezone: null,
             },
             otpState: {
                 inputOtp: null,
@@ -84,6 +89,21 @@ export const auth = {
                     commit('otpSendFailed');
                     return Promise.reject(error);
                 })
+        },
+
+        getIpGeoLocation ({ commit }) {
+            return userService.getIpGeolocation().then(
+                result => {
+                    console.log(result);
+                    commit('ipGeoLocationSuccess', result.data);
+                    return Promise.resolve(result.data);
+                },
+                error => {
+                    console.log(error);
+                    commit('ipGeoLocationFailed');
+                    return Promise.reject(error);
+                }
+            )
         },
 
         verifyTwilio ({ commit }) {
@@ -196,6 +216,22 @@ export const auth = {
         twilioNotVerified (state) {
             state.otpState.twilio_status = "not-verified";
             console.log("not verified");
+        },
+
+        ipGeoLocationSuccess (state, result) {
+            state.user.country = result["country"];
+            state.user.countryCode = result["country_code"];
+            state.user.countryFlag = result["flag"]["svg"];
+            state.user.countryFlagEmoji = result["flag"]["emoji"];
+            state.user.timezone = result["timezone"]["name"];
+        },
+
+        ipGeoLocationFailed (state) {
+            state.user.country = null;
+            state.user.countryCode = null;
+            state.user.countryFlag = null;
+            state.user.countryFlagEmoji = null;
+            state.user.timezone = null;
         },
     },
 };

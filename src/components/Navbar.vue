@@ -19,9 +19,7 @@
 				aria-expanded="false"
 				aria-label="Toggle navigation"
 			>
-				<span class="navbar-toggler-icon">
-					<Menu></Menu>
-				</span>
+				<span class="navbar-toggler-icon"> </span>
 			</button>
 
 			<div
@@ -48,12 +46,12 @@
 						<a class="nav-link" href="#contact-us">Feedback</a>
 					</li>
 
-					<li class="nav-item">
+					<li class="nav-item" v-if="countryFlag">
 						<div class="nav-link">
 							<img
-								height="40"
-								width="40"
-								src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg"
+								id="countryFlag"
+								height="25"
+								:src="countryFlag"
 							/>
 						</div>
 					</li>
@@ -86,13 +84,9 @@
 </template>
 
 <script scoped>
-import { Menu } from "mdue";
-
 export default {
 	name: "Navbar",
-	components: {
-		Menu,
-	},
+	components: {},
 	computed: {
 		balance: function () {
 			if (this.$store.state.auth.user.dbUser) {
@@ -105,6 +99,11 @@ export default {
 		otpStatus: function () {
 			return this.$store.state.auth.otpState.otpStatus;
 		},
+		countryFlag: function () {
+			if (this.$store.state.auth.user.countryFlag) {
+				return this.$store.state.auth.user.countryFlag;
+			} else return null;
+		},
 	},
 	mounted() {
 		var navLinks = document.getElementsByClassName("nav-link");
@@ -113,6 +112,13 @@ export default {
 				document.getElementById("navbarText").classList.remove("show");
 			});
 		}
+
+		this.$store
+			.dispatch("auth/getIpGeoLocation")
+			.then((result) => {
+				console.log("Location found", result);
+			})
+			.catch((err) => console.log("Login Failed", err));
 	},
 };
 </script>
@@ -123,5 +129,9 @@ export default {
 }
 .card {
 	height: 58px;
+}
+
+#countryFlag {
+	border: 1px solid #f1f1f1;
 }
 </style>

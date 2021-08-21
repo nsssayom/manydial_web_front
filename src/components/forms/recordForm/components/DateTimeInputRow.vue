@@ -30,6 +30,7 @@
 								is-expanded
 								v-model="date"
 								mode="dateTime"
+								:timezone="timezone"
 								:locale="{
 									id: 'en',
 									firstDayOfWeek: 1,
@@ -63,10 +64,15 @@ export default {
 		dateSelected: function () {
 			return this.$store.state.data.preferredDate;
 		},
+		timezone: function () {
+			if (this.$store.state.auth.user.timezone) {
+				return this.$store.state.auth.user.timezone;
+			} else return "UTC";
+		},
 	},
 	watch: {
 		date: function (newDate) {
-			// console.log("date changed", newDate.toISOString());
+			console.log("date changed", newDate.toISOString());
 			this.$store.state.data.preferredDate = newDate;
 		},
 	},

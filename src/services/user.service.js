@@ -11,5 +11,9 @@ class UserService {
         const header = { 'headers': authHeader(), 'Content-Type': 'application/json' };
         return axios.post(process.env.VUE_APP_API_BASE_URL + '/users/auth/self', {}, header);
     }
+
+    getIpGeolocation () {
+        return axios.get(process.env.VUE_APP_IP_GEOLOCATION_API_ENDPOINT);
+    }
 }
 export default new UserService();
