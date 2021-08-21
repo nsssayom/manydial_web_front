@@ -1,5 +1,5 @@
 <template>
-	<nav class="navbar navbar-expand-xl fixed-top mdl-shadow">
+	<nav class="navbar navbar-expand-xl fixed-top mdl-shadow" id="navbar">
 		<div class="container">
 			<a class="navbar-brand" href="#">
 				<img
@@ -24,8 +24,11 @@
 				</span>
 			</button>
 
-			<div class="collapse navbar-collapse" id="navbarText">
-				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+			<div
+				class="collapse navbar-collapse flex-grow-1 text-right"
+				id="navbarText"
+			>
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
 					<li class="nav-item active">
 						<a class="nav-link" href="#">Call Now</a>
 					</li>
@@ -44,6 +47,29 @@
 					<li class="nav-item">
 						<a class="nav-link" href="#contact-us">Feedback</a>
 					</li>
+
+					<li class="nav-item">
+						<div class="nav-link">
+							<img
+								height="40"
+								width="40"
+								src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg"
+							/>
+						</div>
+					</li>
+
+					<li class="nav-item">
+						<div
+							v-show="
+								balance !== null &&
+								otpStatus === 'verify_success'
+							"
+							class="btn btn-outline-primary disabled"
+							id="balance-button"
+						>
+							{{ " Balance:  " + " $" + balance }}
+						</div>
+					</li>
 				</ul>
 
 				<!-- TODO: Add a dropdown with balance, number and logout  -->
@@ -54,14 +80,6 @@
 				>
 					{{ phoneNumber }}
 				</div> -->
-
-				<div
-					v-show="balance !== null && otpStatus === 'verify_success'"
-					class="btn btn-outline-primary disabled"
-					id="balance-button"
-				>
-					{{ " Balance:  " + " $" + balance }}
-				</div>
 			</div>
 		</div>
 	</nav>
@@ -87,6 +105,14 @@ export default {
 		otpStatus: function () {
 			return this.$store.state.auth.otpState.otpStatus;
 		},
+	},
+	mounted() {
+		var navLinks = document.getElementsByClassName("nav-link");
+		for (var i = 0; i < navLinks.length; i++) {
+			navLinks[i].addEventListener("click", function () {
+				document.getElementById("navbarText").classList.remove("show");
+			});
+		}
 	},
 };
 </script>

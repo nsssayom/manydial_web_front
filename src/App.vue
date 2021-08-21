@@ -1,5 +1,6 @@
 <template>
 	<Navbar></Navbar>
+
 	<section id="home">
 		<input-form v-show="currentForm === 'record'" />
 		<twilio-form v-if="currentForm === 'verify'" />
@@ -80,7 +81,7 @@ export default {
 	}
 }
 
-#features{
+#features {
 	background-color: #1f202215;
 }
 </style>
