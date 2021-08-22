@@ -19,7 +19,13 @@
 				aria-expanded="false"
 				aria-label="Toggle navigation"
 			>
-				<span class="navbar-toggler-icon"> </span>
+				<span class="navbar-toggler-icon">
+					<span>
+						<font-awesome-icon
+							:icon="['fas', 'chevron-circle-down']"
+							:style="{ color: '#407BFF' }"
+					/></span>
+				</span>
 			</button>
 
 			<div

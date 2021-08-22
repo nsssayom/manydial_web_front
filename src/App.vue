@@ -77,7 +77,7 @@ export default {
 <style scoped>
 @media (max-width: 1200px) {
 	section {
-		padding-top: 0px;
+		padding-top: 20px;
 	}
 }
 
