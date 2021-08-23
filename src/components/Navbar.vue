@@ -3,7 +3,7 @@
 		<div class="container">
 			<a class="navbar-brand" href="#">
 				<img
-					src="../assets/img/logo.svg"
+					src="../assets/img/logo.png"
 					alt=""
 					width="150"
 					height="40"

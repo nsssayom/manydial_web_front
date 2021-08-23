@@ -1,24 +1,26 @@
 <template>
 	<div class="row">
-		<div class="col-8 me-auto">
+		<div class="col-8 ms-auto">
 			<!-- <OTPForm /> -->
+
+			<!-- pattern="[0]{1}[1]{1}[0-9]{9}"
+				maxlength="11" -->
 			<input
 				type="tel"
 				class="mdl-border mdl-shadow form-control p-3 bg-body rounded"
 				id="mobile"
 				placeholder="Sender's Number "
-				pattern="[0]{1}[1]{1}[0-9]{9}"
-				maxlength="11"
 				required
 				v-model="phoneNumber"
+				@click="onSenderNumberClick"
 			/>
 		</div>
 		<div class="col-4">
 			<button
 				class="form-control btn btn-block py-3 py-xs-0 my-xs-0"
 				:class="{
-					'btn-outline-primary': isPhoneNumberValid,
-					'btn-outline-info': !isPhoneNumberValid,
+					'btn-outline-success': isPhoneNumberValid,
+					'btn-outline-primary': !isPhoneNumberValid,
 				}"
 				type="button"
 				id="btn-get-otp"
@@ -37,6 +39,14 @@
 
 <script>
 import firebase from "firebase/app";
+import {
+	parsePhoneNumber,
+	getCountryCallingCode,
+	/* isValidPhoneNumber,
+	getCountryCallingCode,
+	isSupportedCountry,
+	AsYouType, */
+} from "libphonenumber-js/max";
 
 export default {
 	name: "PhoneInputRow",
@@ -44,17 +54,28 @@ export default {
 		return {
 			phoneNumber: "",
 			otpSubmitted: false,
+			isPhoneNumberValid: false,
 		};
 	},
 	computed: {
-		isPhoneNumberValid: function () {
-			var patt = new RegExp("^[0][1][3456789][0-9]{8}$");
-			return patt.test(this.phoneNumber);
+		country: function () {
+			if (this.$store.state.auth.user.countryCode) {
+				return this.$store.state.auth.user.countryCode;
+			} else {
+				return null;
+			}
+		},
+
+		countryCode: function () {
+			if (this.country) {
+				return getCountryCallingCode(this.country);
+			}
+			return "";
 		},
 	},
 	methods: {
 		onPhoneNumberInput() {
-			// TODO: Using debug phone number. Change on production
+			/*
 			const phoneNumber = "+88" + this.phoneNumber;
 			//const phoneNumber = "+8801717018376";
 			const appVerifier = window.recaptchaVerifier;
@@ -74,10 +95,30 @@ export default {
 				})
 				.finally(() => {
 					this.otpSubmitted = false;
-				});
+				}); */
+		},
+
+		onSenderNumberClick() {
+			if (!this.phoneNumber || this.phoneNumber === "") {
+				this.phoneNumber = "+" + this.countryCode;
+			}
 		},
 	},
-	watch: {},
+	watch: {
+		phoneNumber: function (newVal) {
+			if (phoneNumber && phoneNumber === "") {
+				phoneNumber = "+880";
+			}
+			try {
+				var phoneNumber = parsePhoneNumber(newVal, this.country);
+				this.isPhoneNumberValid = phoneNumber.isValid();
+				console.log(phoneNumber, phoneNumber.isValid());
+			} catch (error) {
+				console.error("Can't process data");
+				this.isPhoneNumberValid = false;
+			}
+		},
+	},
 	mounted() {
 		window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
 			"btn-get-otp",

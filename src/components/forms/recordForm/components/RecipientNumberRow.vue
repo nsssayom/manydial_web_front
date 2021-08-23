@@ -78,6 +78,7 @@
 </template>
 
 <script>
+import { parsePhoneNumber } from "libphonenumber-js/max";
 export default {
 	name: "RecipientNumberRow",
 	data() {
@@ -103,8 +104,30 @@ export default {
 				return false;
 			}
 			return this.tokenizedNumbers.every((number) => {
-				return number.match("^(\\+88)?01[3-9]{1}[0-9]{8}$");
+				try {
+					console.log("country", this.country);
+					var phoneNumber = parsePhoneNumber(number, this.country);
+					if (
+						phoneNumber.isValid() &&
+						(phoneNumber.getType() === "MOBILE" ||
+							phoneNumber.getType() === "FIXED_LINE" ||
+							phoneNumber.getType() === "FIXED_LINE_OR_MOBILE")
+					) {
+						return true;
+					}
+					return false;
+				} catch (error) {
+					return false;
+				}
 			});
+		},
+		country: function () {
+			if (this.$store.state.auth.user.countryCode) {
+				// console.log("code", isSupportedCountry("BD"));
+				return this.$store.state.auth.user.countryCode;
+			} else {
+				return null;
+			}
 		},
 	},
 };
