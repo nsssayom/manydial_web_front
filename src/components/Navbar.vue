@@ -3,9 +3,9 @@
 		<div class="container">
 			<a class="navbar-brand" href="#">
 				<img
-					src="../assets/img/logo.png"
+					src="../assets/img/logo-mod.svg"
 					alt=""
-					width="150"
+					width="120"
 					height="40"
 					class="d-inline-block align-text-top"
 				/>
