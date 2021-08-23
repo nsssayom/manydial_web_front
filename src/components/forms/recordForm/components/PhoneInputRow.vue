@@ -75,13 +75,10 @@ export default {
 	},
 	methods: {
 		onPhoneNumberInput() {
-			/*
-			const phoneNumber = "+88" + this.phoneNumber;
-			//const phoneNumber = "+8801717018376";
+			const phoneNumber = this.phoneNumber;
+
 			const appVerifier = window.recaptchaVerifier;
 
-			//console.log(phoneNumber);
-			// Firebase sendOtp(phonenumber, appVerifier)
 			// Dispatching sendOtp action
 			this.$store
 				.dispatch("auth/sendOtp", { phoneNumber, appVerifier })
@@ -95,7 +92,7 @@ export default {
 				})
 				.finally(() => {
 					this.otpSubmitted = false;
-				}); */
+				});
 		},
 
 		onSenderNumberClick() {
@@ -106,15 +103,11 @@ export default {
 	},
 	watch: {
 		phoneNumber: function (newVal) {
-			if (phoneNumber && phoneNumber === "") {
-				phoneNumber = "+880";
-			}
 			try {
 				var phoneNumber = parsePhoneNumber(newVal, this.country);
 				this.isPhoneNumberValid = phoneNumber.isValid();
 				console.log(phoneNumber, phoneNumber.isValid());
 			} catch (error) {
-				console.error("Can't process data");
 				this.isPhoneNumberValid = false;
 			}
 		},
