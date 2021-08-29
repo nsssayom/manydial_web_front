@@ -19,6 +19,9 @@ import firebase from "firebase/app";
 import "firebase/analytics";
 import "firebase/auth";
 
+import 'flatpickr/dist/flatpickr.css';
+import VueFlatPickr from 'vue-flatpickr-component';
+
 import store from "./store";
 
 // add font-awesome icons to library
@@ -52,6 +55,7 @@ app.use(AudioVisual);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.use(store);
 app.use(VCalendar);
+app.use(VueFlatPickr);
 
 app.mount('#app');
 

@@ -24,7 +24,13 @@
 			</svg>
 
 			<div
-				class="alert alert-success d-flex align-items-center rounded"
+				class="
+					alert alert-success
+					d-flex
+					align-items-center
+					rounded
+					mb-0
+				"
 				role="alert"
 			>
 				<svg

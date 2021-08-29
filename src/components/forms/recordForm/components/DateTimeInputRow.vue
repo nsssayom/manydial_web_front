@@ -1,49 +1,18 @@
 <template>
-	<div class="row pt-3">
+	<div class="row">
 		<div class="col-12">
-			<div class="accordion" id="dateAccordion">
-				<div class="accordion-item mdl-border mdl-shadow">
-					<h2 class="accordion-header" id="headingOne">
-						<button
-							class="accordion-button collapsed text-muted"
-							type="button"
-							data-bs-toggle="collapse"
-							data-bs-target="#collapseOne"
-							aria-expanded="false"
-							aria-controls="collapseOne"
-						>
-							{{
-								dateSelected
-									? dateSelected.toLocaleString("en-US")
-									: "Select the Date and Time to Initiate Call"
-							}}
-						</button>
-					</h2>
-					<div
-						id="collapseOne"
-						class="accordion-collapse collapse"
-						aria-labelledby="headingOne"
-						data-bs-parent="#dateAccordion"
-					>
-						<div class="accordion-body">
-							<v-date-picker
-								is-expanded
-								v-model="date"
-								mode="dateTime"
-								:timezone="timezone"
-								:locale="{
-									id: 'en',
-									firstDayOfWeek: 1,
-									masks: { weekdays: 'WWW' },
-								}"
-								:min-date="
-									new Date(new Date().getTime() + 15 * 60000)
-								"
-							/>
-						</div>
-					</div>
-				</div>
-			</div>
+			<flat-pickr
+				v-model="date"
+				:config="config"
+				class="
+					mdl-border mdl-shadow
+					form-control
+					p-3
+					bg-body
+					rounded
+					mt-3
+				"
+			></flat-pickr>
 		</div>
 	</div>
 </template>
@@ -51,19 +20,46 @@
 <script>
 export default {
 	name: "DateTimeInputRow",
+
 	data() {
 		return {
-			date: new Date(),
-			/* timezone: "+06:00", */
-			/* masks: {
-				input: "YYYY-MM-DD hh:MM:SS",
-			}, */
+			date: new Date(new Date().getTime() + 10 * 60000),
+
+			config: {
+				wrap: true,
+				onopen: function () {
+					const minDate = new Date(new Date().getTime() + 10 * 60000);
+					this.set("minDate", minDate);
+					if (this.date < minDate) {
+						this.setDate(minDate);
+					}
+				},
+				enableTime: true,
+				altInput: true,
+				altFormat: "F j, Y  h:iK",
+				dateFormat: "Y-m-dTH:i:00",
+				time_24hr: false,
+				minDate: new Date(new Date().getTime() + 10 * 60000),
+			},
 		};
 	},
 	computed: {
-		dateSelected: function () {
-			return this.$store.state.data.preferredDate;
+		/* date: function () {
+			if (this.$store.state.auth.otpState.twilio_status === "verified") {
+				return new Date(new Date().getTime() + 5 * 60000);
+			} else {
+				return new Date(new Date().getTime() + 10 * 60000);
+			}
+		}, */
+
+		startDate: function () {
+			return this.date.toISOString.split("T")[0];
 		},
+
+		startTime: function () {
+			return this.date.toISOString.split("T")[1].splice(0, -1);
+		},
+
 		timezone: function () {
 			if (this.$store.state.auth.user.timezone) {
 				return this.$store.state.auth.user.timezone;
@@ -72,9 +68,13 @@ export default {
 	},
 	watch: {
 		date: function (newDate) {
-			console.log("date changed", newDate.toISOString());
-			this.$store.state.data.preferredDate = newDate;
+			console.log("Date selected", new Date(newDate).toISOString());
+			this.$store.dispatch("data/setPreferredDate", new Date(newDate));
 		},
+	},
+	mounted() {
+		console.log("Date selected", new Date(this.date).toISOString());
+		this.$store.dispatch("data/setPreferredDate", new Date(this.date));
 	},
 };
 </script>

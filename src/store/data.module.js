@@ -57,6 +57,10 @@ export const data = {
             commit('updateAudioDuration');
         },
 
+        setPreferredDate ({ commit }, preferredDate) {
+            commit('updatePreferredDate', preferredDate);
+        },
+
         setRecipients ({ commit }, recipients) {
             commit('updateRecipient', recipients);
         },
@@ -66,10 +70,11 @@ export const data = {
         },
 
         getSlots ({ commit, state }) {
-            console.log("Preferred Date", state.preferredDate.toISOString());
+            console.log('getSlots', state.preferredDate);
+            console.log("Preferred Date", state.preferredDate);
             console.log("Recipient Count", state.recipients.length);
 
-            return slotService.getSlots(state.preferredDate.toISOString(),
+            return slotService.getSlots(state.preferredDate,
                 state.recipients.length)
                 .then(
                     slots => {
@@ -135,6 +140,10 @@ export const data = {
 
         updateRecipient (state, recipients) {
             state.recipients = recipients;
+        },
+
+        updatePreferredDate (state, preferredDate) {
+            state.preferredDate = preferredDate.toISOString();
         },
 
         updateCurrentForm (state, currentForm) {

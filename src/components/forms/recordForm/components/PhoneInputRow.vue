@@ -19,8 +19,8 @@
 			<button
 				class="form-control btn btn-block py-3 py-xs-0 my-xs-0"
 				:class="{
-					'btn-outline-success': isPhoneNumberValid,
-					'btn-outline-primary': !isPhoneNumberValid,
+					'btn-outline-primary': isPhoneNumberValid,
+					'btn-outline-info': !isPhoneNumberValid,
 				}"
 				type="button"
 				id="btn-get-otp"
@@ -53,6 +53,7 @@ export default {
 	data() {
 		return {
 			phoneNumber: "",
+			phoneNumberInternational: "",
 			otpSubmitted: false,
 			isPhoneNumberValid: false,
 		};
@@ -75,8 +76,7 @@ export default {
 	},
 	methods: {
 		onPhoneNumberInput() {
-			const phoneNumber = this.phoneNumber;
-
+			const phoneNumber = this.phoneNumberInternational;
 			const appVerifier = window.recaptchaVerifier;
 
 			// Dispatching sendOtp action
@@ -106,7 +106,14 @@ export default {
 			try {
 				var phoneNumber = parsePhoneNumber(newVal, this.country);
 				this.isPhoneNumberValid = phoneNumber.isValid();
-				console.log(phoneNumber, phoneNumber.isValid());
+				if (this.isPhoneNumberValid) {
+					this.phoneNumberInternational = phoneNumber.number;
+					console.log(
+						this.phoneNumberInternational,
+						phoneNumber.number,
+						phoneNumber.country
+					);
+				}
 			} catch (error) {
 				this.isPhoneNumberValid = false;
 			}

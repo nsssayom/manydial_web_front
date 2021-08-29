@@ -30,6 +30,7 @@
     "vue": "^3.0.0",
     "vue-audio-recorder": "^3.0.1",
     "vue-audio-visual": "^2.3.0",
+    "vue-flatpickr-component": "^9.0.5",
     "vuex": "^4.0.2",
     "vuex-persistedstate": "^4.0.0"
   },

@@ -1,6 +1,6 @@
 <template>
 	<div class="row pt-3">
-		<div class="col-8">
+		<div class="col-12">
 			<textarea
 				class="mdl-border mdl-shadow form-control"
 				:class="{
@@ -17,8 +17,7 @@
 			></textarea>
 		</div>
 
-		<div class="col-4">
-			<!-- Record button starts -->
+		<!-- <div class="col-4">
 			<div class="btn-group">
 				<button
 					type="button"
@@ -34,14 +33,14 @@
 					Input
 				</button>
 				<ul class="dropdown-menu">
-					<!-- <li>
+					<li>
 						<a class="dropdown-item" href="#"
 							><font-awesome-icon
 								:icon="['fas', 'keyboard']"
 								:style="{ color: '616161' }"
 							/><span> Enter Numbers</span></a
 						>
-					</li> -->
+					</li> 
 					<li>
 						<a class="dropdown-item" href="#"
 							><font-awesome-icon
@@ -63,7 +62,7 @@
 					</li>
 				</ul>
 			</div>
-		</div>
+		</div> -->
 	</div>
 
 	<div class="row pt-3">
