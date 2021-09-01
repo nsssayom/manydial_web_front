@@ -10,7 +10,7 @@ import "@/assets/css/style.css"
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faMicrophone, faCircle, faPlay, faUpload, faDownload, faKeyboard, faCheck, faCheckSquare, faTimesCircle, faArrowLeft, faSpinner, faChevronCircleDown } from "@fortawesome/free-solid-svg-icons";
+import { faMicrophone, faCircle, faPlay, faUpload, faDownload, faKeyboard, faCheck, faCheckSquare, faTimesCircle, faArrowLeft, faSpinner, faChevronCircleDown, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faInstagram, faLinkedin, faTwitter, faWhatsapp, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
 import VCalendar from 'v-calendar';
@@ -29,7 +29,7 @@ library.add(faMicrophone, faCircle, faPlay, faUpload,
     faDownload, faKeyboard, faCheck, faCheckSquare,
     faFacebook, faInstagram, faTwitter,
     faYoutube, faTimesCircle, faLinkedin,
-    faWhatsapp, faArrowLeft, faSpinner, faCheckCircle, faChevronCircleDown);
+    faWhatsapp, faArrowLeft, faSpinner, faCheckCircle, faChevronCircleDown, faTimes);
 
 
 import AudioVisual from 'vue-audio-visual';

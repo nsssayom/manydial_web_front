@@ -16,14 +16,7 @@
 					<input
 						type="number"
 						id="digit-1"
-						class="
-							form-control
-							
-							p-3
-							bg-white
-							rounded
-							text-center
-						"
+						class="form-control p-3 bg-white rounded text-center"
 						name="digit-1"
 						data-next="digit-2"
 						maxlength="1"
@@ -32,14 +25,7 @@
 					<input
 						type="number"
 						id="digit-2"
-						class="
-							form-control
-							
-							p-3
-							bg-white
-							rounded
-							text-center
-						"
+						class="form-control p-3 bg-white rounded text-center"
 						name="digit-2"
 						data-next="digit-3"
 						data-previous="digit-1"
@@ -49,14 +35,7 @@
 					<input
 						type="number"
 						id="digit-3"
-						class="
-							form-control
-							
-							p-3
-							bg-white
-							rounded
-							text-center
-						"
+						class="form-control p-3 bg-white rounded text-center"
 						name="digit-3"
 						data-next="digit-4"
 						data-previous="digit-2"
@@ -66,14 +45,7 @@
 					<input
 						type="number"
 						id="digit-4"
-						class="
-							form-control
-							
-							p-3
-							bg-white
-							rounded
-							text-center
-						"
+						class="form-control p-3 bg-white rounded text-center"
 						name="digit-4"
 						data-next="digit-5"
 						data-previous="digit-3"
@@ -83,14 +55,7 @@
 					<input
 						type="number"
 						id="digit-5"
-						class="
-							form-control
-							
-							p-3
-							bg-white
-							rounded
-							text-center
-						"
+						class="form-control p-3 bg-white rounded text-center"
 						name="digit-5"
 						data-next="digit-6"
 						data-previous="digit-4"
@@ -100,14 +65,7 @@
 					<input
 						type="number"
 						id="digit-6"
-						class="
-							form-control
-							
-							p-3
-							bg-white
-							rounded
-							text-center
-						"
+						class="form-control p-3 bg-white rounded text-center"
 						name="digit-6"
 						data-previous="digit-5"
 						maxlength="1"
@@ -127,7 +85,6 @@
 						form-control
 						btn btn-primary
 						w-100
-						
 						py-3 py-xs-0
 						my-xs-0
 					"
@@ -147,7 +104,6 @@
 						form-control
 						btn btn-primary
 						w-100
-						
 						py-3 py-xs-0
 						my-xs-0
 					"
@@ -156,7 +112,7 @@
 					id="btn-cancel-otp"
 				>
 					<font-awesome-icon
-						:icon="['fas', 'arrow-left']"
+						:icon="['fas', 'times']"
 						:style="{ color: 'white' }"
 					/>
 				</button>
@@ -305,12 +261,13 @@ export default {
 }
 
 #btn-cancel-otp {
-	background-color: #ff9e80 !important;
-	border-color: #ff9e80 !important;
+	background-color: #ef5350 !important;
+	border-color: #ef5350 !important;
 }
 
 #btn-cancel-otp:hover {
-	background-color: #ff6e40 !important;
+	background-color: #e53935 !important;
+	border-color: #e53935 !important;
 }
 
 input::-webkit-outer-spin-button,

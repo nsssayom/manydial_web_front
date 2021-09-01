@@ -148,7 +148,7 @@
 					<div class="col-12">
 						<div class="alert alert-danger" role="alert">
 							Not enough credit to complete your call.
-							<a href="#contact-us">Contact us. </a>।
+							<a href="#contact-us">Terms and Conditions. </a>।
 						</div>
 					</div>
 				</div>
