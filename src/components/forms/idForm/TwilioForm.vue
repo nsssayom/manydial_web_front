@@ -19,19 +19,33 @@
 				<!-- Call sent message starts -->
 				<div class="row pt-3" v-show="verificationStatus === 'sent'">
 					<div class="col-12">
-						<div class="alert alert-info" role="alert">
-							You will get a call shortly. Please recieve the call
-							and enter
+						<div class="alert alert-primary" role="alert">
+							You will receive a call shortly. Please accept the
+							call and enter the code
 							<b> {{ verificationCode }} </b> when asked.
 						</div>
 					</div>
 				</div>
 				<!-- Call sent message ends -->
 
+				<!-- Verification waiting message starts -->
+				<div class="row pt-3" v-if="tryingFirstTime">
+					<div class="col-12">
+						<div class="alert alert-warning" role="alert">
+							Checking you senderID verification status. Please
+							wait...
+						</div>
+					</div>
+				</div>
+				<!-- Verification waiting message ends -->
+
 				<!-- Verification failed message starts -->
 				<div
 					class="row pt-3"
-					v-show="verificationStatus === 'not-verified'"
+					v-show="
+						verificationStatus === 'not-verified' &&
+						!tryingFirstTime
+					"
 				>
 					<div class="col-12">
 						<div class="alert alert-danger" role="alert">
@@ -146,7 +160,7 @@
 						<div class="alert alert-success" role="alert">
 							Your order has been placed and is being processed.
 							Your can check the status of your order
-							<a href="#">{{ orderId }} </a>।
+							<a :href="orderUrl"> here </a>.
 						</div>
 					</div>
 				</div>
@@ -183,18 +197,30 @@
 					</button>
 				</div>
 			</div>
-			<div class="col-12 col-xl-7" id="form-intro">
+			<div
+				class="col-12 col-xl-7 order-first order-xl-last"
+				id="form-intro"
+			>
 				<!-- <form-intro /> -->
+				<SenderIDVerificationVideo />
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+import SenderIDVerificationVideo from "./components/senderIDVerificationVideo.vue";
 /* import FormIntro from "../recordForm/components/FormIntro.vue"; */
 export default {
 	name: "TwilioForm",
+	data() {
+		return {
+			tryingFirstTime: true,
+			Numbers: require("number-to-emoji"),
+		};
+	},
 	components: {
+		SenderIDVerificationVideo,
 		/* FormIntro, */
 	},
 
@@ -204,7 +230,9 @@ export default {
 		},
 
 		verificationCode: function () {
-			return this.$store.state.auth.otpState.twilio_verification_code;
+			return this.Numbers.toEmoji(
+				this.$store.state.auth.otpState.twilio_verification_code
+			);
 		},
 
 		slotAllocated: function () {
@@ -294,6 +322,12 @@ export default {
 			}
 			return null;
 		},
+		orderUrl() {
+			if (this.orderId) {
+				return `https://order.manydial.com/?orderid=${this.orderId}`;
+			}
+			return null;
+		},
 	},
 
 	methods: {
@@ -314,7 +348,11 @@ export default {
 	mounted() {
 		if (this.verificationStatus === "not-verified") {
 			console.log("verification", this.verificationStatus);
-			this.$store.dispatch("auth/verifyTwilio");
+			this.$store.dispatch("auth/verifyTwilio").finally(() => {
+				this.tryingFirstTime = false;
+			});
+		} else {
+			this.tryingFirstTime = false;
 		}
 		this.$store.dispatch("data/getSlots");
 

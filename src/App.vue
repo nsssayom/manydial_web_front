@@ -14,7 +14,7 @@
 		<capacity />
 	</section> -->
 
-	<section id="pricing" class="bg-light">
+	<section id="pricing">
 		<pricing />
 	</section>
 
@@ -76,7 +76,7 @@ export default {
 
 <style scoped>
 @media (max-width: 1200px) {
-	section {
+	#home {
 		padding-top: 20px;
 	}
 }

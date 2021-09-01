@@ -26,6 +26,7 @@
     "jquery": "^3.6.0",
     "libphonenumber-js": "^1.9.24",
     "mdue": "^0.1.4",
+    "number-to-emoji": "^1.0.0",
     "v-calendar": "^3.0.0-alpha.5",
     "vue": "^3.0.0",
     "vue-audio-recorder": "^3.0.1",

@@ -37,8 +37,8 @@
 					<div class="footer-btn">
 						<h6>Call center</h6>
 						<p>
-							<a id="tel-link" href="tel:097777777777">
-								097777777777
+							<a id="tel-link" href="tel:+1 559 546 4900">
+								+1 559 546 4900
 							</a>
 						</p>
 					</div>

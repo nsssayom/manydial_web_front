@@ -18,7 +18,7 @@
 							</h5>
 							<p>
 								We support the highest numbers of concurrent
-								calls & ensure a seamless broadcasting
+								calls and ensure a seamless broadcasting
 								experience.
 							</p>
 						</div>
@@ -38,11 +38,12 @@
 						</div>
 						<div class="left">
 							<h5 class="heading">
-								Most of the countries in the world
+								Supports Most of the countries in the world
 							</h5>
 							<p>
 								We support voice call broadcasting to most of
-								the countries in the world in just a few minute
+								the countries in the world in just a few
+								minutes.
 							</p>
 						</div>
 					</header>

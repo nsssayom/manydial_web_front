@@ -1,7 +1,7 @@
 <template>
 	<nav class="navbar navbar-expand-xl fixed-top mdl-shadow" id="navbar">
 		<div class="container">
-			<a class="navbar-brand" href="#">
+			<a class="navbar-brand" href="#home">
 				<img
 					src="../assets/img/logo-mod.svg"
 					alt=""
@@ -71,7 +71,7 @@
 							class="btn btn-outline-primary disabled"
 							id="balance-button"
 						>
-							{{ " Balance:  " + " $" + balance }}
+							{{ " Balance:  " + " $" + balance.toFixed(2) }}
 						</div>
 					</li>
 				</ul>

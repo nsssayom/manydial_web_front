@@ -1,5 +1,14 @@
 <template>
 	<div class="container text-center">
+		<img
+			src="@/assets/img/pricing.png"
+			alt="pricing"
+			class="img-fluid"
+			id="pricimng-img"
+		/>
+	</div>
+
+	<!-- <div class="container text-center">
 		<div class="row d-flex justify-content-center">
 			<div class="col-md-8">
 				<h3>
@@ -51,9 +60,7 @@
 						</div>
 						<div class="pricing-footer">
 							<h3>$0.023/min</h3>
-							<!-- TODO: Fetch the price from the server and display
-							it here -->
-							<!-- <small>Monthly Payment</small> -->
+							
 						</div>
 					</div>
 				</div>
@@ -96,7 +103,6 @@
 						</div>
 						<div class="pricing-footer">
 							<h3>$0.019/min</h3>
-							<!-- <small>Monthly Payment</small> -->
 						</div>
 					</div>
 				</div>
@@ -139,7 +145,6 @@
 						</div>
 						<div class="pricing-footer">
 							<h3>$0.016/min</h3>
-							<!-- <small>Monthly Payment</small> -->
 						</div>
 					</div>
 				</div>
@@ -194,13 +199,12 @@
 								class="btn btn-primary full-width"
 								>Contat Us for Price</a
 							>
-							<!-- <small>Monthly Payment</small> -->
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 </template>
 
 <script>
@@ -272,4 +276,5 @@ export default {
 	padding: 4px;
 	border-radius: 5px;
 }
+
 </style>

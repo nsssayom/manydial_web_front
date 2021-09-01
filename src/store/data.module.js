@@ -21,19 +21,19 @@ export const data = {
                     name: 'Silver',
                     start: 1,
                     end: 100,
-                    rate: 3
+                    rate: 0.01
                 },
                 {
                     name: 'Gold',
                     start: 101,
                     end: 1000,
-                    rate: 2
+                    rate: 0.01
                 },
                 {
                     name: 'Platinum',
                     start: 1001,
                     end: 10000,
-                    rate: 1
+                    rate: 0.01
                 },
             ],
         }
