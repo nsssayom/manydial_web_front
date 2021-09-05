@@ -1,6 +1,8 @@
 <template>
-	<!-- v-if="verificationStatus === 'sent'" -->
-	<div class="row align-items-center pt-3">
+	<div
+		class="row align-items-center pt-3"
+		v-if="verificationStatus === 'sent'"
+	>
 		<video
 			oncontextmenu="return false;"
 			id="video-player"
@@ -14,6 +16,18 @@
 			/>
 		</video>
 	</div>
+
+	<img
+		src="@/assets/img/ID-Verification-Successful.gif"
+		class="mx-auto d-block img-col"
+		v-if="verificationStatus === 'verified'"
+	/>
+
+	<img
+		src="@/assets/img/ID-Verification-Failed.gif"
+		class="mx-auto d-block img-col"
+		v-if="verificationStatus === 'not-verified' && twilioTried"
+	/>
 </template>
 
 <script>
@@ -23,11 +37,20 @@ export default {
 		verificationStatus: function () {
 			return this.$store.state.auth.otpState.twilio_status;
 		},
+
+        twilioTried: function () {
+			return this.$store.state.auth.otpState.twilio_tried;
+		},
 	},
 };
 </script>
 
 <style scoped>
+.img-col {
+	height: 500px;
+	width: 450px;
+}
+
 #intro-title {
 	color: #0080ff;
 	font-size: 36px;

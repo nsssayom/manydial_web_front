@@ -1,5 +1,5 @@
 <template>
-	<div class="container">
+	<div class="container" oncontextmenu="return false;">
 		<!-- The whole home row -->
 		<div class="row">
 			<div class="col-12 col-xl-5">
@@ -49,7 +49,14 @@
 				>
 					<div class="col-12">
 						<div class="alert alert-danger" role="alert">
-							Your number could not be verified. Please try again.
+							<div class="d-flex justify-content-between align-items-center">
+
+                                <div> Your number could not be verified </div>
+                                <div> 
+                                    <button type="button" class="btn btn-outline-success" @click="onTryAgain()"> Try again</button>
+                                </div>
+
+                            </div>
 						</div>
 					</div>
 				</div>
@@ -343,6 +350,10 @@ export default {
 		onNewCall() {
 			location.reload();
 		},
+
+        onTryAgain(){
+            this.$store.dispatch("auth/verifyTwilio");
+        }
 	},
 
 	mounted() {
@@ -361,5 +372,5 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 </style>

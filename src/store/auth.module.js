@@ -21,7 +21,8 @@ export const auth = {
                 otpFailedCount: 0,
                 confirmationResult: null,
                 twilio_verification_code: null,
-                twilio_status: "init" // "sent" / "verified" / "not-verified" 
+                twilio_status: "init", // "sent" / "verified" / "not-verified" 
+                twilio_tried: false,
             }
         }
     },
@@ -215,6 +216,7 @@ export const auth = {
 
         twilioNotVerified (state) {
             state.otpState.twilio_status = "not-verified";
+            state.otpState.twilio_tried = true;
             console.log("not verified");
         },
 
