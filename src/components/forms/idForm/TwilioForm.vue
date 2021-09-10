@@ -21,8 +21,8 @@
 					<div class="col-12">
 						<div class="alert alert-primary" role="alert">
 							You will receive a call shortly. Please accept the
-							call and enter the code
-							<b> {{ verificationCode }} </b> when asked.
+							call and enter the following code:
+							<h3 class="text-primary"> {{ verificationCode }} </h3>
 						</div>
 					</div>
 				</div>
@@ -180,7 +180,8 @@
 						type="button"
 						class="btn btn-primary"
 						:disabled="!formClear"
-						@click="onNextBtn"
+						data-bs-toggle="modal"
+						data-bs-target="#orderModal"
 					>
 						Place Order
 					</button>
@@ -206,6 +207,53 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Modal starts -->
+	<div
+		@close="showModal = false"
+		class="modal fade"
+		id="orderModal"
+		tabindex="-1"
+		aria-labelledby="orderModalLabel"
+		aria-hidden="true"
+	>
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="orderModalLabel">
+						Modal title
+					</h5>
+					<button
+						type="button"
+						class="btn-close"
+						data-bs-dismiss="modal"
+						aria-label="Close"
+					></button>
+				</div>
+				<div class="modal-body">
+					Are you sure you want to place this order?
+				</div>
+				<div class="modal-footer">
+					<button
+						type="button"
+						class="btn btn-secondary"
+						data-bs-dismiss="modal"
+					>
+						No
+					</button>
+					<button
+						type="button"
+						class="btn btn-primary"
+						@click="onNextBtn"
+						data-bs-dismiss="modal"
+					>
+						Yes
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal ends -->
 </template>
 
 <script>
@@ -230,9 +278,10 @@ export default {
 		},
 
 		verificationCode: function () {
-			return this.Numbers.toEmoji(
+			/* return this.Numbers.toEmoji(
 				this.$store.state.auth.otpState.twilio_verification_code
-			);
+			); */
+			return this.$store.state.auth.otpState.twilio_verification_code;
 		},
 
 		slotAllocated: function () {

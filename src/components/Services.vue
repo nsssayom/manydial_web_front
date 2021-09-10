@@ -1,8 +1,8 @@
 <template>
 	<div class="container">
 		<div class="row align-items-center">
-			<div class="col-lg-4">
-				<div class="box card mdl-shadow py-3 px-4">
+			<div class="col-xl-4">
+				<div class="box card mdl-shadow py-4 px-4">
 					<header class="box-header">
 						<div class="right">
 							<div class="icon-bg">
@@ -25,8 +25,8 @@
 					</header>
 				</div>
 			</div>
-			<div class="col-lg-4">
-				<div class="box card mdl-shadow py-3 px-4">
+			<div class="col-xl-4">
+				<div class="box card mdl-shadow py-4 px-4">
 					<header class="box-header">
 						<div class="right">
 							<div class="icon-bg">
@@ -49,8 +49,8 @@
 					</header>
 				</div>
 			</div>
-			<div class="col-lg-4">
-				<div class="box card mdl-shadow py-3 px-4">
+			<div class="col-xl-4">
+				<div class="box card mdl-shadow py-4 px-4">
 					<header class="box-header">
 						<div class="right">
 							<div class="icon-bg">
@@ -89,5 +89,11 @@ export default {
 <style>
 .heading {
 	font-weight: 600 !important;
+}
+
+@media  (min-width: 1199px) {
+	.box {
+		min-height: 250px !important;
+	}
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
 	<div class="container text-center">
 		<img
-			src="@/assets/img/pricing.png"
+			src="@/assets/img/Pricing-Banner.jpg"
 			alt="pricing"
 			class="img-fluid"
 			id="pricimng-img"
@@ -275,6 +275,10 @@ export default {
 .pricing-wrapper {
 	padding: 4px;
 	border-radius: 5px;
+}
+
+.text-center{
+    padding: 0 !important;
 }
 
 </style>
