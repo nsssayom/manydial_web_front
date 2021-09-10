@@ -228,7 +228,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="orderModalLabel">
-						Modal title
+						Place Order
 					</h5>
 					<button
 						type="button"
