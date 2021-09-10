@@ -1,9 +1,9 @@
 <template>
 	<nav class="navbar navbar-expand-xl fixed-top mdl-shadow" id="navbar">
 		<div class="container">
-			<a class="navbar-brand" href="#home">
+			<a class="navbar-brand" href="https://manydial.com">
 				<img
-					src="../assets/img/logo-mod.svg"
+					src="@/assets/img/Menydial-Beta.svg"
 					alt=""
 					width="120"
 					height="40"

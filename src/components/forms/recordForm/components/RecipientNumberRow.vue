@@ -84,14 +84,19 @@ export default {
 		return {
 			recipientNumber: "",
 			tokenizedNumbers: [],
+            tokenizedIntlNumbers: [],
 		};
 	},
 	watch: {
 		recipientNumber(newString) {
 			this.tokenizedNumbers = newString.split(/\r?\n/);
 			if (this.isNumbersValid) {
-				this.$store.state.data.recipients = this.tokenizedNumbers;
-				console.log(this.$store.state.data.recipients);
+                this.tokenizedIntlNumbers = this.tokenizedNumbers.map(number => {
+                    const phoneNumber = parsePhoneNumber(number, this.country);
+                    return phoneNumber.number;
+                })
+				this.$store.state.data.recipients = this.tokenizedIntlNumbers;
+				console.log('Recipients', this.$store.state.data.recipients);
 			} else {
 				this.$store.state.data.recipients = null;
 			}
@@ -104,7 +109,6 @@ export default {
 			}
 			return this.tokenizedNumbers.every((number) => {
 				try {
-					console.log("country", this.country);
 					var phoneNumber = parsePhoneNumber(number, this.country);
 					if (
 						phoneNumber.isValid() &&
