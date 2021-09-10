@@ -7,8 +7,10 @@
 						<div class="right">
 							<div class="icon-bg">
 								<img
-									src="@/assets/img/icon-email.svg"
+									src="@/assets/img/phone.svg"
 									class="img-fluid"
+                                    height="64"
+                                    width="64"
 								/>
 							</div>
 						</div>
@@ -31,8 +33,10 @@
 						<div class="right">
 							<div class="icon-bg">
 								<img
-									src="@/assets/img/icon-world.svg"
+									src="@/assets/img/worldwide.svg"
 									class="img-fluid"
+                                    height="64"
+                                    width="64"
 								/>
 							</div>
 						</div>
@@ -55,8 +59,10 @@
 						<div class="right">
 							<div class="icon-bg">
 								<img
-									src="@/assets/img/icon-search.svg"
+									src="@/assets/img/cheap.svg"
 									class="img-fluid"
+                                    height="64"
+                                    width="64"
 								/>
 							</div>
 						</div>
