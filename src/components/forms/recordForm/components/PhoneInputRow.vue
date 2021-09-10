@@ -169,7 +169,7 @@ export default {
 }
 
 .disbaled-btn {
-	opacity: 65%;
+	opacity: 0.65;
 	cursor: not-allowed;
 }
 
