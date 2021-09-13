@@ -167,7 +167,7 @@
 						<div class="alert alert-success" role="alert">
 							Your order has been placed and is being processed.
 							Your can check the status of your order
-							<a :href="orderUrl"> here </a>.
+							<a :href="orderUrl" target="_blank"> here</a>.
 						</div>
 					</div>
 				</div>
