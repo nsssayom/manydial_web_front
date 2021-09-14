@@ -1,7 +1,7 @@
 <template>
 	<div class="container text-center">
 		<img
-			src="@/assets/img/Pricing-Banner.jpg"
+			src="@/assets/img/beta-pricing.png"
 			alt="pricing"
 			class="img-fluid"
 			id="pricimng-img"
