@@ -47,8 +47,7 @@ export default {
 
 <style scoped>
 .img-col {
-	height: 500px;
-	width: 450px;
+	width: 350px;
 }
 
 #intro-title {

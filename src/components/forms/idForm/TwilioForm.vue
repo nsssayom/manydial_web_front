@@ -1,7 +1,7 @@
 <template>
 	<div class="container" oncontextmenu="return false;">
 		<!-- The whole home row -->
-		<div class="row">
+		<div class="row align-items-center">
 			<div class="col-12 col-xl-5">
 				<!-- Verified message starts-->
 				<div
