@@ -31,7 +31,14 @@
 					></button>
 				</div>
 				<div class="modal-body">
-					Are you sure you want to place this order?
+					By clicking <b>yes</b> you are agreeing to our
+					<a href="https://manydial.com/privacy-policy/"
+						>Privacy Policy</a
+					>
+					and
+					<a href="https://manydial.com/terms-and-conditions/"
+						>Terms & Conditions</a
+					>.
 				</div>
 				<div class="modal-footer">
 					<button
@@ -57,7 +64,7 @@
 
 <script>
 export default {
-    name: 'OrderModal',
+	name: "OrderModal",
 };
 </script>
 
