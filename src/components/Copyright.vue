@@ -6,10 +6,10 @@
 					<ul class="list-inline">
 						<li class="list-inline-item"><a href="#">Home</a></li>
 						<li class="list-inline-item">
-							<a href="#contact-us">Term and Conditions</a>
+							<a href="https://manydial.com/terms-and-conditions/" target="_blank">Terms and Conditions</a>
 						</li>
 						<li class="list-inline-item">
-							<a href="#">Privacy policy</a>
+							<a href="https://manydial.com/privacy-policy/" target="_blank">Privacy Policy</a>
 						</li>
 					</ul>
 				</div>
